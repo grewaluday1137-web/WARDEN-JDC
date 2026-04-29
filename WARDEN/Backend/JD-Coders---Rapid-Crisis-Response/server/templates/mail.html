@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify your identity - Warden</title>
+  <style type="text/css">
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; }
+    img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    table { border-collapse: collapse !important; }
+    body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+    a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
+    @media screen and (max-width: 600px) {
+      .main-table { width: 100% !important; }
+      .p-mobile { padding: 20px !important; }
+      .otp-text { font-size: 32px !important; letter-spacing: 0.1em !important; }
+    }
+  </style>
+</head>
+<body style="background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td align="center" style="padding: 40px 10px;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="main-table" style="max-width: 600px; border-radius: 24px; overflow: hidden; background-color: #ffffff; box-shadow: 0 32px 64px -12px rgba(0,0,0,0.08); border: 1px solid #f1f5f9;">
+          <!-- Top Gradient Border -->
+          <tr>
+            <td height="8" style="background: #2563eb; background: linear-gradient(to right, #2563eb, #4f46e5, #7c3aed);"></td>
+          </tr>
+          
+          <!-- Content Padding -->
+          <tr>
+            <td class="p-mobile" style="padding: 48px;">
+              
+              <!-- Logo Header -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 48px;">
+                <tr>
+                  <td>
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td width="40" height="40" bgcolor="#0f172a" style="border-radius: 12px; text-align: center;">
+                          <div style="color: #ffffff; font-size: 20px; font-weight: bold; line-height: 40px;">W</div>
+                        </td>
+                        <td style="padding-left: 12px; font-size: 24px; font-weight: 800; color: #0f172a; letter-spacing: -0.025em;">WARDEN</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Main Heading -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 40px;">
+                <tr>
+                  <td>
+                    <h1 style="margin: 0; font-size: 30px; font-weight: 600; color: #0f172a; margin-bottom: 16px;">Verify your identity</h1>
+                    <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #64748b;">
+                      A sign-in attempt requires further verification. Use the code below to complete your authentication process.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- OTP Code Display -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f8fafc; border-radius: 16px; border: 1px solid #f1f5f9; margin-bottom: 40px;">
+                <tr>
+                  <td align="center" style="padding: 40px;">
+                    <span style="display: block; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 24px;">Verification Code</span>
+                    <div class="otp-text" style="font-family: 'Courier New', Courier, monospace; font-size: 48px; font-weight: 800; color: #0f172a; letter-spacing: 0.2em;">{OTP_CODE}</div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Warning Box -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #fffbeb; border: 1px solid #fef3c7; border-radius: 12px; margin-bottom: 40px;">
+                <tr>
+                  <td style="padding: 20px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td valign="top" width="24" style="color: #d97706; font-size: 20px; line-height: 1;">!</td>
+                        <td style="padding-left: 16px;">
+                          <p style="margin: 0; font-size: 14px; font-weight: 600; color: #92400e;">This code will expire in 10 minutes.</p>
+                          <p style="margin: 0; font-size: 14px; color: #b45309; opacity: 0.8; margin-top: 4px;">If you didn't request this code, please ignore this email or contact security support.</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Footer Contact -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-top: 1px solid #f1f5f9; padding-top: 40px;">
+                <tr>
+                  <td align="center">
+                    <p style="margin: 0; font-size: 12px; font-weight: 500; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">
+                      Warden Security Systems Inc. &bull; 500 Defense Plaza &bull; Austin, TX
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+        </table>
+        
+        <!-- Bottom Disclaimer -->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; margin-top: 32px;">
+          <tr>
+            <td align="center" style="padding: 0 40px;">
+              <p style="margin: 0; font-size: 12px; color: #94a3b8; line-height: 1.5;">
+                You are receiving this automated email because a sign-in was initiated from a new device. If this was not you, <a href="#" style="color: #2563eb; font-weight: 500; text-decoration: underline;">secure your account here</a>.
+              </p>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

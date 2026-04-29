@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "zones": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "dependencies": [
+    {
+      "id": "DEP-001",
+      "sourceZone": "A",
+      "targetZone": "C",
+      "linkType": "gas",
+      "weight": 0.75,
+      "bidirectional": true
+    },
+    {
+      "id": "DEP-002",
+      "sourceZone": "B",
+      "targetZone": "D",
+      "linkType": "structural",
+      "weight": 0.8,
+      "bidirectional": true
+    },
+    {
+      "id": "DEP-003",
+      "sourceZone": "A",
+      "targetZone": "B",
+      "linkType": "electric",
+      "weight": 0.6,
+      "bidirectional": true
+    }
+  ],
+  "exits": [
+    {
+      "id": "EXIT-NW",
+      "zone": "A",
+      "x": 0,
+      "y": 0,
+      "label": "NW Exit",
+      "capacity": 5,
+      "blocked": false
+    },
+    {
+      "id": "EXIT-NE",
+      "zone": "B",
+      "x": 100,
+      "y": 0,
+      "label": "NE Exit",
+      "capacity": 5,
+      "blocked": false
+    },
+    {
+      "id": "EXIT-SW",
+      "zone": "C",
+      "x": 0,
+      "y": 100,
+      "label": "SW Exit",
+      "capacity": 8,
+      "blocked": false
+    },
+    {
+      "id": "EXIT-SE",
+      "zone": "D",
+      "x": 100,
+      "y": 100,
+      "label": "SE Exit",
+      "capacity": 10,
+      "blocked": false
+    }
+  ],
+  "routes": [
+    {
+      "from": "A",
+      "to": "B",
+      "travelTimeTicks": 10,
+      "hazardMultiplier": 1
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "travelTimeTicks": 10,
+      "hazardMultiplier": 1
+    }
+  ],
+  "metadata": {
+    "facilityName": "Test Facility",
+    "lastModified": "2026-01-01T00:00:00Z",
+    "author": "test"
+  }
+}

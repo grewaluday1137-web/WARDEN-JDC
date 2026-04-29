@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "crisis-db-da031",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

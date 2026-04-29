@@ -1,0 +1,49 @@
+﻿# Dependencies
+**/node_modules/
+**/.venv/
+**/env/
+**/venv/
+**/bin/
+**/obj/
+
+# Build outputs
+**/dist/
+**/build/
+**/out/
+**/target/
+**/.next/
+**/.turbo/
+**/.cache/
+**/*.exe
+**/*.dll
+**/*.so
+**/*.dylib
+**/*.zip
+**/*.tar.gz
+**/*.rar
+**/*.gguf
+**/*.mp4
+**/*.jpeg
+**/*.jpg
+**/*.png
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# WARDEN specific
+**/.gradle/
+
+**/firebase_key.json
+**/*.pyc
+**/__pycache__/
+
+**/firebase_key.json
+**/*.pyc
+**/__pycache__/

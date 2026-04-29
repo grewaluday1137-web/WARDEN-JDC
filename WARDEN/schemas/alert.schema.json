@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WARDEN Alert Schema",
+  "description": "Canonical alert structure shared across all WARDEN platforms (Backend, CrysisDesk, ResponderApp, Android). Any changes here must be reflected in all platform-specific type definitions.",
+  "type": "object",
+  "required": ["id", "source", "location", "metadata", "timestamp"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique alert identifier (UUID)"
+    },
+    "source": {
+      "type": "string",
+      "description": "Origin of the alert: sensor, camera, guest, simulation, mobile_sos"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "floor": { "type": ["integer", "string"] },
+        "room": { "type": ["integer", "string"] },
+        "area": { "type": "string" },
+        "node": { "type": "string" }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "incident_type": { "type": "string", "description": "fire, intrusion, structural_damage, etc." },
+        "event_type": { "type": "string" },
+        "event_msg": { "type": "string" },
+        "intensity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "node_name": { "type": "string" },
+        "zone_id": { "type": "string" },
+        "floor": { "type": ["integer", "string"] }
+      }
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "Unix epoch timestamp"
+    },
+    "score": {
+      "type": "integer",
+      "description": "AI-generated severity score (0-100)",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "responding", "resolved"],
+      "default": "pending"
+    },
+    "ai_summary": {
+      "type": ["string", "null"],
+      "description": "AI-generated one-line summary"
+    },
+    "detailed_report": {
+      "type": ["string", "null"],
+      "description": "AI-generated tactical report"
+    },
+    "media_attachments": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" },
+      "default": [],
+      "description": "URLs to images/videos related to the alert"
+    },
+    "reason": {
+      "type": "string",
+      "description": "AI-generated explanation of the severity score"
+    }
+  }
+}

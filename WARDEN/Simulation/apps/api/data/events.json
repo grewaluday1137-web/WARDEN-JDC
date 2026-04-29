@@ -1,0 +1,1570 @@
+[
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557095,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557096,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557097,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in B"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557097,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557097,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible explosion in C"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557097,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557097,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing fire"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557097,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557097,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing fire"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775992557097,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: FIRE in Zone A (confidence: 85%)"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1775992557098,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557098,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in B"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557098,
+    "zone": "B",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for B — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775992557098,
+    "zone": "B",
+    "severity": "info",
+    "source": "cv-engine",
+    "message": "✅ Camera check: no visual confirmation in Zone B. Returning to standby."
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557098,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557098,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing fire"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775992557098,
+    "zone": "A",
+    "severity": "resolved",
+    "source": "operator",
+    "message": "✅ Incident in Zone A resolved — cooldown active for 30s"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557099,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557099,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing fire"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775992572099,
+    "zone": "A",
+    "severity": "warning",
+    "source": "state-machine",
+    "message": "⏱️ CV timeout in Zone A — escalating to MANUAL REVIEW"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557100,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557100,
+    "zone": "A",
+    "severity": "resolved",
+    "source": "operator",
+    "message": "✅ Incident in Zone A resolved — cooldown active for 30s"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557100,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557100,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing fire"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775992557100,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: FIRE in Zone A (confidence: 90%)"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1775992557100,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00005",
+    "timestamp": 1775992557100,
+    "zone": "A",
+    "severity": "resolved",
+    "source": "operator",
+    "message": "✅ Incident in Zone A resolved — cooldown active for 30s"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557101,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible explosion in B"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557101,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in B"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing fire"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: FIRE in Zone A (confidence: 80%)"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing fire"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: FIRE in Zone A (confidence: 80%)"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00005",
+    "timestamp": 1775992557101,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Activate fire suppression system in zone\""
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557102,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557102,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in C"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775992557102,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775992557102,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing fire"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775992557102,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: FIRE in Zone A (confidence: 80%)"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1775992557102,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775993035577,
+    "zone": "D",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible structural collapse in D"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775993035577,
+    "zone": "D",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for D — analyzing structural_collapse"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775993042618,
+    "zone": "D",
+    "severity": "warning",
+    "source": "state-machine",
+    "message": "⏱️ CV timeout in Zone D — escalating to MANUAL REVIEW"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1775993104377,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible structural collapse in A"
+  },
+  {
+    "id": "EVT-00005",
+    "timestamp": 1775993104377,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing structural_collapse"
+  },
+  {
+    "id": "EVT-00006",
+    "timestamp": 1775993111489,
+    "zone": "A",
+    "severity": "warning",
+    "source": "state-machine",
+    "message": "⏱️ CV timeout in Zone A — escalating to MANUAL REVIEW"
+  },
+  {
+    "id": "EVT-00007",
+    "timestamp": 1775993136654,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible explosion in C"
+  },
+  {
+    "id": "EVT-00008",
+    "timestamp": 1775993136654,
+    "zone": "C",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for C — analyzing explosion"
+  },
+  {
+    "id": "EVT-00009",
+    "timestamp": 1775993141448,
+    "zone": "C",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: EXPLOSION in Zone C (confidence: 60%)"
+  },
+  {
+    "id": "EVT-00010",
+    "timestamp": 1775993141449,
+    "zone": "C",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone C — locating all personnel"
+  },
+  {
+    "id": "EVT-00011",
+    "timestamp": 1775993143700,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in B"
+  },
+  {
+    "id": "EVT-00012",
+    "timestamp": 1775993143700,
+    "zone": "B",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for B — analyzing fire"
+  },
+  {
+    "id": "EVT-00013",
+    "timestamp": 1775993148623,
+    "zone": "B",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: FIRE in Zone B (confidence: 60%)"
+  },
+  {
+    "id": "EVT-00014",
+    "timestamp": 1775993148623,
+    "zone": "B",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone B — locating all personnel"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1775994264982,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible explosion in B"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1775994264982,
+    "zone": "B",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for B — analyzing explosion"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1775994268416,
+    "zone": "D",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible explosion in D"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1775994269013,
+    "zone": "D",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for D — analyzing explosion"
+  },
+  {
+    "id": "EVT-00005",
+    "timestamp": 1775994271040,
+    "zone": "B",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: EXPLOSION in Zone B (confidence: 60%)"
+  },
+  {
+    "id": "EVT-00006",
+    "timestamp": 1775994271040,
+    "zone": "B",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone B — locating all personnel"
+  },
+  {
+    "id": "EVT-00007",
+    "timestamp": 1775994273053,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in A"
+  },
+  {
+    "id": "EVT-00008",
+    "timestamp": 1775994273053,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00009",
+    "timestamp": 1775994273076,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone A (confidence: 71%)"
+  },
+  {
+    "id": "EVT-00010",
+    "timestamp": 1775994273076,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00011",
+    "timestamp": 1775994274029,
+    "zone": "D",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: EXPLOSION in Zone D (confidence: 60%)"
+  },
+  {
+    "id": "EVT-00012",
+    "timestamp": 1775994274029,
+    "zone": "D",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone D — locating all personnel"
+  },
+  {
+    "id": "EVT-00013",
+    "timestamp": 1775994274064,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in C"
+  },
+  {
+    "id": "EVT-00014",
+    "timestamp": 1775994274064,
+    "zone": "C",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for C — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00015",
+    "timestamp": 1775994274081,
+    "zone": "C",
+    "severity": "info",
+    "source": "cv-engine",
+    "message": "✅ Camera check: no visual confirmation in Zone C. Returning to standby."
+  },
+  {
+    "id": "EVT-00016",
+    "timestamp": 1775994275077,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in C"
+  },
+  {
+    "id": "EVT-00017",
+    "timestamp": 1775994275077,
+    "zone": "C",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for C — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00018",
+    "timestamp": 1775994275083,
+    "zone": "C",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone C (confidence: 75%)"
+  },
+  {
+    "id": "EVT-00019",
+    "timestamp": 1775994275083,
+    "zone": "C",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone C — locating all personnel"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1776006511690,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible structural collapse in C"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1776006511693,
+    "zone": "C",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for C — analyzing structural_collapse"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1776006518735,
+    "zone": "C",
+    "severity": "warning",
+    "source": "state-machine",
+    "message": "⏱️ CV timeout in Zone C — escalating to MANUAL REVIEW"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1776006547451,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible structural collapse in B"
+  },
+  {
+    "id": "EVT-00005",
+    "timestamp": 1776006547452,
+    "zone": "B",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for B — analyzing structural_collapse"
+  },
+  {
+    "id": "EVT-00006",
+    "timestamp": 1776006554751,
+    "zone": "B",
+    "severity": "warning",
+    "source": "state-machine",
+    "message": "⏱️ CV timeout in Zone B — escalating to MANUAL REVIEW"
+  },
+  {
+    "id": "EVT-00007",
+    "timestamp": 1776006596480,
+    "zone": "D",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in D"
+  },
+  {
+    "id": "EVT-00008",
+    "timestamp": 1776006596480,
+    "zone": "D",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for D — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00009",
+    "timestamp": 1776006596749,
+    "zone": "D",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone D (confidence: 74%)"
+  },
+  {
+    "id": "EVT-00010",
+    "timestamp": 1776006596749,
+    "zone": "D",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone D — locating all personnel"
+  },
+  {
+    "id": "EVT-00011",
+    "timestamp": 1776006597455,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in A"
+  },
+  {
+    "id": "EVT-00012",
+    "timestamp": 1776006597455,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00013",
+    "timestamp": 1776006597481,
+    "zone": "A",
+    "severity": "info",
+    "source": "cv-engine",
+    "message": "✅ Camera check: no visual confirmation in Zone A. Returning to standby."
+  },
+  {
+    "id": "EVT-00014",
+    "timestamp": 1776006598457,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in A"
+  },
+  {
+    "id": "EVT-00015",
+    "timestamp": 1776006598457,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00016",
+    "timestamp": 1776006598474,
+    "zone": "A",
+    "severity": "info",
+    "source": "cv-engine",
+    "message": "✅ Camera check: no visual confirmation in Zone A. Returning to standby."
+  },
+  {
+    "id": "EVT-00017",
+    "timestamp": 1776006599471,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in A"
+  },
+  {
+    "id": "EVT-00018",
+    "timestamp": 1776006599471,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00019",
+    "timestamp": 1776006599505,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone A (confidence: 75%)"
+  },
+  {
+    "id": "EVT-00020",
+    "timestamp": 1776006599505,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00021",
+    "timestamp": 1776006766967,
+    "zone": "C",
+    "severity": "resolved",
+    "source": "operator",
+    "message": "✅ Incident in Zone C resolved — cooldown active for 30s"
+  },
+  {
+    "id": "EVT-00022",
+    "timestamp": 1776006773815,
+    "zone": "A",
+    "severity": "resolved",
+    "source": "operator",
+    "message": "✅ Incident in Zone A resolved — cooldown active for 30s"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1776016841245,
+    "zone": "D",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in D"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1776016841246,
+    "zone": "D",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for D — analyzing fire"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1776016841768,
+    "zone": "D",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: FIRE in Zone D (confidence: 69%)"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1776016841768,
+    "zone": "D",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone D — locating all personnel"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1776021584148,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in B"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1776021584230,
+    "zone": "B",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for B — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1776021584642,
+    "zone": "B",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone B (confidence: 77%)"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1776021584642,
+    "zone": "B",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone B — locating all personnel"
+  },
+  {
+    "id": "EVT-00005",
+    "timestamp": 1776021593287,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in A"
+  },
+  {
+    "id": "EVT-00006",
+    "timestamp": 1776021593287,
+    "zone": "D",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in D"
+  },
+  {
+    "id": "EVT-00007",
+    "timestamp": 1776021593287,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00008",
+    "timestamp": 1776021593317,
+    "zone": "D",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for D — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00009",
+    "timestamp": 1776021593381,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone A (confidence: 73%)"
+  },
+  {
+    "id": "EVT-00010",
+    "timestamp": 1776021593381,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00011",
+    "timestamp": 1776021593382,
+    "zone": "D",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone D (confidence: 91%)"
+  },
+  {
+    "id": "EVT-00012",
+    "timestamp": 1776021593382,
+    "zone": "D",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone D — locating all personnel"
+  },
+  {
+    "id": "EVT-00013",
+    "timestamp": 1776021597297,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in C"
+  },
+  {
+    "id": "EVT-00014",
+    "timestamp": 1776021597297,
+    "zone": "C",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for C — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00015",
+    "timestamp": 1776021597375,
+    "zone": "C",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone C (confidence: 78%)"
+  },
+  {
+    "id": "EVT-00016",
+    "timestamp": 1776021597375,
+    "zone": "C",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone C — locating all personnel"
+  },
+  {
+    "id": "EVT-00017",
+    "timestamp": 1776021792068,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Shut off gas supply valves for zone\""
+  },
+  {
+    "id": "EVT-00018",
+    "timestamp": 1776021792693,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Shut off gas supply valves for zone\""
+  },
+  {
+    "id": "EVT-00019",
+    "timestamp": 1776021794249,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Confirm gas levels return to safe threshold\""
+  },
+  {
+    "id": "EVT-00020",
+    "timestamp": 1776021794440,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Confirm gas levels return to safe threshold\""
+  },
+  {
+    "id": "EVT-00021",
+    "timestamp": 1776021795262,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Monitor adjacent zones for gas spread\""
+  },
+  {
+    "id": "EVT-00022",
+    "timestamp": 1776021795452,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Monitor adjacent zones for gas spread\""
+  },
+  {
+    "id": "EVT-00023",
+    "timestamp": 1776021795662,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Monitor adjacent zones for gas spread\""
+  },
+  {
+    "id": "EVT-00024",
+    "timestamp": 1776021796261,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Equip responders with gas masks\""
+  },
+  {
+    "id": "EVT-00025",
+    "timestamp": 1776021796457,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Equip responders with gas masks\""
+  },
+  {
+    "id": "EVT-00026",
+    "timestamp": 1776021797575,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Activate ventilation fans to max capacity\""
+  },
+  {
+    "id": "EVT-00027",
+    "timestamp": 1776021797767,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Activate ventilation fans to max capacity\""
+  },
+  {
+    "id": "EVT-00028",
+    "timestamp": 1776021798510,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Shut off gas supply valves for zone\""
+  },
+  {
+    "id": "EVT-00029",
+    "timestamp": 1776021798706,
+    "zone": "D",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Shut off gas supply valves for zone\""
+  },
+  {
+    "id": "EVT-00030",
+    "timestamp": 1776021799454,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Confirm gas levels return to safe threshold\""
+  },
+  {
+    "id": "EVT-00031",
+    "timestamp": 1776021799624,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Confirm gas levels return to safe threshold\""
+  },
+  {
+    "id": "EVT-00032",
+    "timestamp": 1776021799776,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Confirm gas levels return to safe threshold\""
+  },
+  {
+    "id": "EVT-00033",
+    "timestamp": 1776021804665,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Monitor adjacent zones for gas spread\""
+  },
+  {
+    "id": "EVT-00034",
+    "timestamp": 1776021804815,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Monitor adjacent zones for gas spread\""
+  },
+  {
+    "id": "EVT-00035",
+    "timestamp": 1776021805495,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Equip responders with gas masks\""
+  },
+  {
+    "id": "EVT-00036",
+    "timestamp": 1776021805661,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Equip responders with gas masks\""
+  },
+  {
+    "id": "EVT-00037",
+    "timestamp": 1776021806290,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Activate ventilation fans to max capacity\""
+  },
+  {
+    "id": "EVT-00038",
+    "timestamp": 1776021806441,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Activate ventilation fans to max capacity\""
+  },
+  {
+    "id": "EVT-00039",
+    "timestamp": 1776021807178,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Shut off gas supply valves for zone\""
+  },
+  {
+    "id": "EVT-00040",
+    "timestamp": 1776021807345,
+    "zone": "A",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Shut off gas supply valves for zone\""
+  },
+  {
+    "id": "EVT-00041",
+    "timestamp": 1776021814103,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Activate ventilation fans to max capacity\""
+  },
+  {
+    "id": "EVT-00042",
+    "timestamp": 1776021814277,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Activate ventilation fans to max capacity\""
+  },
+  {
+    "id": "EVT-00043",
+    "timestamp": 1776021814981,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Equip responders with gas masks\""
+  },
+  {
+    "id": "EVT-00044",
+    "timestamp": 1776021815215,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Equip responders with gas masks\""
+  },
+  {
+    "id": "EVT-00045",
+    "timestamp": 1776021816382,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Monitor adjacent zones for gas spread\""
+  },
+  {
+    "id": "EVT-00046",
+    "timestamp": 1776021816595,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Monitor adjacent zones for gas spread\""
+  },
+  {
+    "id": "EVT-00047",
+    "timestamp": 1776021817380,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Confirm gas levels return to safe threshold\""
+  },
+  {
+    "id": "EVT-00048",
+    "timestamp": 1776021817566,
+    "zone": "C",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Confirm gas levels return to safe threshold\""
+  },
+  {
+    "id": "EVT-00049",
+    "timestamp": 1776021820999,
+    "zone": "B",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Confirm gas levels return to safe threshold\""
+  },
+  {
+    "id": "EVT-00050",
+    "timestamp": 1776021821191,
+    "zone": "B",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Confirm gas levels return to safe threshold\""
+  },
+  {
+    "id": "EVT-00051",
+    "timestamp": 1776021822488,
+    "zone": "B",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Monitor adjacent zones for gas spread\""
+  },
+  {
+    "id": "EVT-00052",
+    "timestamp": 1776021822675,
+    "zone": "B",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Monitor adjacent zones for gas spread\""
+  },
+  {
+    "id": "EVT-00053",
+    "timestamp": 1776021823555,
+    "zone": "B",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Equip responders with gas masks\""
+  },
+  {
+    "id": "EVT-00054",
+    "timestamp": 1776021823742,
+    "zone": "B",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Equip responders with gas masks\""
+  },
+  {
+    "id": "EVT-00055",
+    "timestamp": 1776021824404,
+    "zone": "B",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Activate ventilation fans to max capacity\""
+  },
+  {
+    "id": "EVT-00056",
+    "timestamp": 1776021824596,
+    "zone": "B",
+    "severity": "info",
+    "source": "operator",
+    "message": "☑️ Playbook action completed: \"Shut off gas supply valves for zone\""
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1776026479740,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible structural collapse in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1776026479753,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing structural_collapse"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1776026479938,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: STRUCTURAL COLLAPSE in Zone A (confidence: 77%)"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1776026479938,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00005",
+    "timestamp": 1776026534588,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in B"
+  },
+  {
+    "id": "EVT-00006",
+    "timestamp": 1776026534588,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in C"
+  },
+  {
+    "id": "EVT-00007",
+    "timestamp": 1776026534588,
+    "zone": "D",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in D"
+  },
+  {
+    "id": "EVT-00008",
+    "timestamp": 1776026534588,
+    "zone": "B",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for B — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00009",
+    "timestamp": 1776026534590,
+    "zone": "C",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for C — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00010",
+    "timestamp": 1776026534591,
+    "zone": "D",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for D — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00011",
+    "timestamp": 1776026534599,
+    "zone": "B",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone B (confidence: 82%)"
+  },
+  {
+    "id": "EVT-00012",
+    "timestamp": 1776026534599,
+    "zone": "B",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone B — locating all personnel"
+  },
+  {
+    "id": "EVT-00013",
+    "timestamp": 1776026534600,
+    "zone": "C",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone C (confidence: 90%)"
+  },
+  {
+    "id": "EVT-00014",
+    "timestamp": 1776026534601,
+    "zone": "C",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone C — locating all personnel"
+  },
+  {
+    "id": "EVT-00015",
+    "timestamp": 1776026534601,
+    "zone": "D",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone D (confidence: 90%)"
+  },
+  {
+    "id": "EVT-00016",
+    "timestamp": 1776026534601,
+    "zone": "D",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone D — locating all personnel"
+  },
+  {
+    "id": "EVT-00001",
+    "timestamp": 1776027574697,
+    "zone": "A",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in A"
+  },
+  {
+    "id": "EVT-00002",
+    "timestamp": 1776027574716,
+    "zone": "A",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for A — analyzing fire"
+  },
+  {
+    "id": "EVT-00003",
+    "timestamp": 1776027574800,
+    "zone": "A",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: FIRE in Zone A (confidence: 79%)"
+  },
+  {
+    "id": "EVT-00004",
+    "timestamp": 1776027574800,
+    "zone": "A",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone A — locating all personnel"
+  },
+  {
+    "id": "EVT-00005",
+    "timestamp": 1776027590861,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in C"
+  },
+  {
+    "id": "EVT-00006",
+    "timestamp": 1776027590861,
+    "zone": "C",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for C — analyzing fire"
+  },
+  {
+    "id": "EVT-00007",
+    "timestamp": 1776027590865,
+    "zone": "C",
+    "severity": "info",
+    "source": "cv-engine",
+    "message": "✅ Camera check: no visual confirmation in Zone C. Returning to standby."
+  },
+  {
+    "id": "EVT-00008",
+    "timestamp": 1776027593896,
+    "zone": "C",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible fire in C"
+  },
+  {
+    "id": "EVT-00009",
+    "timestamp": 1776027593896,
+    "zone": "C",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for C — analyzing fire"
+  },
+  {
+    "id": "EVT-00010",
+    "timestamp": 1776027593899,
+    "zone": "C",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: FIRE in Zone C (confidence: 86%)"
+  },
+  {
+    "id": "EVT-00011",
+    "timestamp": 1776027593899,
+    "zone": "C",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone C — locating all personnel"
+  },
+  {
+    "id": "EVT-00012",
+    "timestamp": 1776027601959,
+    "zone": "B",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in B"
+  },
+  {
+    "id": "EVT-00013",
+    "timestamp": 1776027601959,
+    "zone": "B",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for B — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00014",
+    "timestamp": 1776027601967,
+    "zone": "B",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone B (confidence: 87%)"
+  },
+  {
+    "id": "EVT-00015",
+    "timestamp": 1776027601967,
+    "zone": "B",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone B — locating all personnel"
+  },
+  {
+    "id": "EVT-00016",
+    "timestamp": 1776027603963,
+    "zone": "D",
+    "severity": "warning",
+    "source": "sensor",
+    "message": "⚠️ Sensor anomaly detected: possible gas leak in D"
+  },
+  {
+    "id": "EVT-00017",
+    "timestamp": 1776027603963,
+    "zone": "D",
+    "severity": "info",
+    "source": "state-machine",
+    "message": "📷 Requesting camera verification for D — analyzing gas_leak"
+  },
+  {
+    "id": "EVT-00018",
+    "timestamp": 1776027603971,
+    "zone": "D",
+    "severity": "critical",
+    "source": "cv-engine",
+    "message": "🔴 CONFIRMED: GAS LEAK in Zone D (confidence: 82%)"
+  },
+  {
+    "id": "EVT-00019",
+    "timestamp": 1776027603971,
+    "zone": "D",
+    "severity": "critical",
+    "source": "ble",
+    "message": "📡 BLE sweep ACTIVATED for Zone D — locating all personnel"
+  }
+]

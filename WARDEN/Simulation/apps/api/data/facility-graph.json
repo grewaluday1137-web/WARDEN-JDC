@@ -1,0 +1,1188 @@
+{
+  "floors": {
+    "F1_GROUND": {
+      "nodes": [
+        {
+          "id": "F1_GROUND_N1",
+          "type": "open_area",
+          "zoneType": "lobby",
+          "capacity": 50,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N2",
+          "type": "open_area",
+          "zoneType": "reception",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N3",
+          "type": "junction",
+          "zoneType": "lobby",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N4",
+          "type": "open_area",
+          "zoneType": "lobby_left",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N5",
+          "type": "open_area",
+          "zoneType": "lobby_right",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N6",
+          "type": "exit",
+          "zoneType": "main_entrance",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND",
+          "tags": [
+            "metal_detector",
+            "security_checkpoint",
+            "main_entrance"
+          ],
+          "isEntry": true,
+          "isExit": true
+        },
+        {
+          "id": "F1_GROUND_N10",
+          "type": "open_area",
+          "zoneType": "restaurant",
+          "capacity": 80,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N11",
+          "type": "open_area",
+          "zoneType": "bar",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N12",
+          "type": "open_area",
+          "zoneType": "cafe",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N20",
+          "type": "open_area",
+          "zoneType": "ballroom",
+          "capacity": 120,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N21",
+          "type": "open_area",
+          "zoneType": "pre_function",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N30",
+          "type": "service",
+          "zoneType": "kitchen",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N31",
+          "type": "service",
+          "zoneType": "prep_kitchen",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N32",
+          "type": "service",
+          "zoneType": "dry_store",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N33",
+          "type": "service",
+          "zoneType": "staff_lounge",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N34",
+          "type": "service",
+          "zoneType": "staff_toilet",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N35",
+          "type": "service",
+          "zoneType": "staff_locker",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N40",
+          "type": "service",
+          "zoneType": "receiving",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND",
+          "tags": [
+            "metal_detector",
+            "security_checkpoint",
+            "service_entrance"
+          ],
+          "isEntry": true
+        },
+        {
+          "id": "F1_GROUND_N41",
+          "type": "service",
+          "zoneType": "linen",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N42",
+          "type": "service",
+          "zoneType": "housekeeping",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND",
+          "tags": [
+            "metal_detector",
+            "security_checkpoint",
+            "service_entrance"
+          ],
+          "isEntry": true
+        },
+        {
+          "id": "F1_GROUND_N43",
+          "type": "service",
+          "zoneType": "engineering",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N44",
+          "type": "service",
+          "zoneType": "security",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N45",
+          "type": "service",
+          "zoneType": "admin",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND"
+        },
+        {
+          "id": "F1_GROUND_N50",
+          "type": "vertical",
+          "zoneType": "stairs_left",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND",
+          "vertical_group": "STAIR_A"
+        },
+        {
+          "id": "F1_GROUND_N51",
+          "type": "vertical",
+          "zoneType": "stairs_right",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND",
+          "vertical_group": "STAIR_B"
+        },
+        {
+          "id": "F1_GROUND_N52",
+          "type": "vertical",
+          "zoneType": "lift_main",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND",
+          "vertical_group": "ELEVATOR_MAIN"
+        },
+        {
+          "id": "F1_GROUND_N53",
+          "type": "vertical",
+          "zoneType": "service_lift",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F1_GROUND",
+          "vertical_group": "ELEVATOR_SERVICE"
+        }
+      ],
+      "edges": [
+        {
+          "source": "F1_GROUND_N6",
+          "target": "F1_GROUND_N2",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N2",
+          "target": "F1_GROUND_N6",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N2",
+          "target": "F1_GROUND_N1",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N1",
+          "target": "F1_GROUND_N2",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N1",
+          "target": "F1_GROUND_N3",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N3",
+          "target": "F1_GROUND_N1",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N3",
+          "target": "F1_GROUND_N4",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N4",
+          "target": "F1_GROUND_N3",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N3",
+          "target": "F1_GROUND_N5",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N5",
+          "target": "F1_GROUND_N3",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N4",
+          "target": "F1_GROUND_N10",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N10",
+          "target": "F1_GROUND_N4",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N10",
+          "target": "F1_GROUND_N11",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N11",
+          "target": "F1_GROUND_N10",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N11",
+          "target": "F1_GROUND_N12",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N12",
+          "target": "F1_GROUND_N11",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N5",
+          "target": "F1_GROUND_N20",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N20",
+          "target": "F1_GROUND_N5",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N20",
+          "target": "F1_GROUND_N21",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N21",
+          "target": "F1_GROUND_N20",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N3",
+          "target": "F1_GROUND_N50",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N50",
+          "target": "F1_GROUND_N3",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N3",
+          "target": "F1_GROUND_N51",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N51",
+          "target": "F1_GROUND_N3",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N3",
+          "target": "F1_GROUND_N52",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N52",
+          "target": "F1_GROUND_N3",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N52",
+          "target": "F1_GROUND_N30",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N30",
+          "target": "F1_GROUND_N52",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N30",
+          "target": "F1_GROUND_N31",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N31",
+          "target": "F1_GROUND_N30",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N30",
+          "target": "F1_GROUND_N32",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N32",
+          "target": "F1_GROUND_N30",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N33",
+          "target": "F1_GROUND_N3",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N3",
+          "target": "F1_GROUND_N33",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N40",
+          "target": "F1_GROUND_N6",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N6",
+          "target": "F1_GROUND_N40",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N42",
+          "target": "F1_GROUND_N6",
+          "weight": 1
+        },
+        {
+          "source": "F1_GROUND_N6",
+          "target": "F1_GROUND_N42",
+          "weight": 1
+        }
+      ]
+    },
+    "F2_FIRST": {
+      "nodes": [
+        {
+          "id": "F2_FIRST_N1",
+          "type": "room",
+          "zoneType": "private",
+          "capacity": 40,
+          "riskMultiplier": 1.0,
+          "floor": "F2_FIRST"
+        },
+        {
+          "id": "F2_FIRST_N2",
+          "type": "room",
+          "zoneType": "private",
+          "capacity": 40,
+          "riskMultiplier": 1.0,
+          "floor": "F2_FIRST"
+        },
+        {
+          "id": "F2_FIRST_N3",
+          "type": "corridor",
+          "zoneType": "corridor",
+          "capacity": 100,
+          "riskMultiplier": 1.0,
+          "floor": "F2_FIRST"
+        },
+        {
+          "id": "F2_FIRST_N4",
+          "type": "stairs",
+          "zoneType": "public",
+          "capacity": 50,
+          "riskMultiplier": 1.0,
+          "floor": "F2_FIRST",
+          "vertical_group": "STAIR_A"
+        },
+        {
+          "id": "F2_FIRST_N5",
+          "type": "stairs",
+          "zoneType": "public",
+          "capacity": 50,
+          "riskMultiplier": 1.0,
+          "floor": "F2_FIRST",
+          "vertical_group": "STAIR_B"
+        },
+        {
+          "id": "F2_FIRST_N6",
+          "type": "exit",
+          "zoneType": "public",
+          "capacity": 200,
+          "riskMultiplier": 1.0,
+          "floor": "F2_FIRST"
+        },
+        {
+          "id": "F2_FIRST_N7",
+          "type": "washroom",
+          "zoneType": "public",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F2_FIRST"
+        },
+        {
+          "id": "F2_FIRST_N8",
+          "type": "office",
+          "zoneType": "private",
+          "capacity": 15,
+          "riskMultiplier": 1.0,
+          "floor": "F2_FIRST"
+        }
+      ],
+      "edges": [
+        {
+          "source": "F2_FIRST_N1",
+          "target": "F2_FIRST_N3",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N3",
+          "target": "F2_FIRST_N1",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N2",
+          "target": "F2_FIRST_N3",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N3",
+          "target": "F2_FIRST_N2",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N3",
+          "target": "F2_FIRST_N4",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N4",
+          "target": "F2_FIRST_N3",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N3",
+          "target": "F2_FIRST_N5",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N5",
+          "target": "F2_FIRST_N3",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N4",
+          "target": "F2_FIRST_N6",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N6",
+          "target": "F2_FIRST_N4",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N5",
+          "target": "F2_FIRST_N6",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N6",
+          "target": "F2_FIRST_N5",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N3",
+          "target": "F2_FIRST_N7",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N7",
+          "target": "F2_FIRST_N3",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N7",
+          "target": "F2_FIRST_N8",
+          "weight": 1
+        },
+        {
+          "source": "F2_FIRST_N8",
+          "target": "F2_FIRST_N7",
+          "weight": 1
+        }
+      ]
+    },
+    "F3_SECOND": {
+      "nodes": [
+        {
+          "id": "F3_SECOND_N1",
+          "type": "room",
+          "zoneType": "private",
+          "capacity": 40,
+          "riskMultiplier": 1.0,
+          "floor": "F3_SECOND"
+        },
+        {
+          "id": "F3_SECOND_N2",
+          "type": "room",
+          "zoneType": "private",
+          "capacity": 40,
+          "riskMultiplier": 1.0,
+          "floor": "F3_SECOND"
+        },
+        {
+          "id": "F3_SECOND_N3",
+          "type": "lab",
+          "zoneType": "private",
+          "capacity": 50,
+          "riskMultiplier": 1.0,
+          "floor": "F3_SECOND"
+        },
+        {
+          "id": "F3_SECOND_N4",
+          "type": "corridor",
+          "zoneType": "private",
+          "capacity": 120,
+          "riskMultiplier": 1.0,
+          "floor": "F3_SECOND"
+        },
+        {
+          "id": "F3_SECOND_N5",
+          "type": "stairs",
+          "zoneType": "private",
+          "capacity": 50,
+          "riskMultiplier": 1.0,
+          "floor": "F3_SECOND",
+          "vertical_group": "STAIR_A"
+        },
+        {
+          "id": "F3_SECOND_N6",
+          "type": "stairs",
+          "zoneType": "private",
+          "capacity": 50,
+          "riskMultiplier": 1.0,
+          "floor": "F3_SECOND",
+          "vertical_group": "STAIR_B"
+        },
+        {
+          "id": "F3_SECOND_N7",
+          "type": "washroom",
+          "zoneType": "private",
+          "capacity": 20,
+          "riskMultiplier": 1.0,
+          "floor": "F3_SECOND"
+        },
+        {
+          "id": "F3_SECOND_N8",
+          "type": "office",
+          "zoneType": "private",
+          "capacity": 15,
+          "riskMultiplier": 1.0,
+          "floor": "F3_SECOND"
+        },
+        {
+          "id": "F3_SECOND_N9",
+          "type": "exit",
+          "zoneType": "private",
+          "capacity": 200,
+          "riskMultiplier": 1.0,
+          "floor": "F3_SECOND"
+        }
+      ],
+      "edges": [
+        {
+          "source": "F3_SECOND_N1",
+          "target": "F3_SECOND_N4",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N4",
+          "target": "F3_SECOND_N1",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N2",
+          "target": "F3_SECOND_N4",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N4",
+          "target": "F3_SECOND_N2",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N3",
+          "target": "F3_SECOND_N4",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N4",
+          "target": "F3_SECOND_N3",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N4",
+          "target": "F3_SECOND_N5",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N5",
+          "target": "F3_SECOND_N4",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N4",
+          "target": "F3_SECOND_N6",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N6",
+          "target": "F3_SECOND_N4",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N5",
+          "target": "F3_SECOND_N9",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N9",
+          "target": "F3_SECOND_N5",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N6",
+          "target": "F3_SECOND_N9",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N9",
+          "target": "F3_SECOND_N6",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N4",
+          "target": "F3_SECOND_N7",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N7",
+          "target": "F3_SECOND_N4",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N7",
+          "target": "F3_SECOND_N8",
+          "weight": 1
+        },
+        {
+          "source": "F3_SECOND_N8",
+          "target": "F3_SECOND_N7",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "anchors": {
+    "F1_GROUND_N1": {
+      "x": 50.0,
+      "y": 40.0
+    },
+    "F1_GROUND_N2": {
+      "x": 50.0,
+      "y": 46.0
+    },
+    "F1_GROUND_N3": {
+      "x": 50.0,
+      "y": 35.0
+    },
+    "F1_GROUND_N4": {
+      "x": 38.0,
+      "y": 42.0
+    },
+    "F1_GROUND_N5": {
+      "x": 62.0,
+      "y": 42.0
+    },
+    "F1_GROUND_N6": {
+      "x": 50.0,
+      "y": 55.0
+    },
+    "F1_GROUND_N10": {
+      "x": 25.0,
+      "y": 45.0
+    },
+    "F1_GROUND_N11": {
+      "x": 25.0,
+      "y": 35.0
+    },
+    "F1_GROUND_N12": {
+      "x": 15.0,
+      "y": 25.0
+    },
+    "F1_GROUND_N20": {
+      "x": 75.0,
+      "y": 35.0
+    },
+    "F1_GROUND_N21": {
+      "x": 75.0,
+      "y": 45.0
+    },
+    "F1_GROUND_N30": {
+      "x": 75.0,
+      "y": 15.0
+    },
+    "F1_GROUND_N31": {
+      "x": 85.0,
+      "y": 15.0
+    },
+    "F1_GROUND_N32": {
+      "x": 65.0,
+      "y": 15.0
+    },
+    "F1_GROUND_N33": {
+      "x": 35.0,
+      "y": 15.0
+    },
+    "F1_GROUND_N34": {
+      "x": 30.0,
+      "y": 15.0
+    },
+    "F1_GROUND_N35": {
+      "x": 25.0,
+      "y": 15.0
+    },
+    "F1_GROUND_N40": {
+      "x": 20.0,
+      "y": 60.0
+    },
+    "F1_GROUND_N41": {
+      "x": 35.0,
+      "y": 60.0
+    },
+    "F1_GROUND_N42": {
+      "x": 60.0,
+      "y": 60.0
+    },
+    "F1_GROUND_N43": {
+      "x": 70.0,
+      "y": 60.0
+    },
+    "F1_GROUND_N44": {
+      "x": 78.0,
+      "y": 60.0
+    },
+    "F1_GROUND_N45": {
+      "x": 85.0,
+      "y": 60.0
+    },
+    "F1_GROUND_N50": {
+      "x": 40.0,
+      "y": 30.0
+    },
+    "F1_GROUND_N51": {
+      "x": 60.0,
+      "y": 30.0
+    },
+    "F1_GROUND_N52": {
+      "x": 50.0,
+      "y": 20.0
+    },
+    "F1_GROUND_N53": {
+      "x": 65.0,
+      "y": 20.0
+    },
+    "F2_FIRST_N1": {
+      "x": 20.0,
+      "y": 20.0
+    },
+    "F2_FIRST_N2": {
+      "x": 60.0,
+      "y": 20.0
+    },
+    "F2_FIRST_N3": {
+      "x": 40.0,
+      "y": 40.0
+    },
+    "F2_FIRST_N4": {
+      "x": 20.0,
+      "y": 60.0
+    },
+    "F2_FIRST_N5": {
+      "x": 60.0,
+      "y": 60.0
+    },
+    "F2_FIRST_N6": {
+      "x": 40.0,
+      "y": 80.0
+    },
+    "F2_FIRST_N7": {
+      "x": 80.0,
+      "y": 40.0
+    },
+    "F2_FIRST_N8": {
+      "x": 100.0,
+      "y": 20.0
+    },
+    "F3_SECOND_N1": {
+      "x": 24.0,
+      "y": 18.0
+    },
+    "F3_SECOND_N2": {
+      "x": 60.0,
+      "y": 18.0
+    },
+    "F3_SECOND_N3": {
+      "x": 96.0,
+      "y": 18.0
+    },
+    "F3_SECOND_N4": {
+      "x": 60.0,
+      "y": 40.0
+    },
+    "F3_SECOND_N5": {
+      "x": 24.0,
+      "y": 64.0
+    },
+    "F3_SECOND_N6": {
+      "x": 96.0,
+      "y": 64.0
+    },
+    "F3_SECOND_N7": {
+      "x": 120.0,
+      "y": 40.0
+    },
+    "F3_SECOND_N8": {
+      "x": 144.0,
+      "y": 18.0
+    },
+    "F3_SECOND_N9": {
+      "x": 60.0,
+      "y": 84.0
+    }
+  },
+  "inter_floor_connections": [
+    {
+      "id": "V1_A",
+      "type": "stairs",
+      "from": {
+        "floor": "F1_GROUND",
+        "node": "F1_GROUND_N50"
+      },
+      "to": {
+        "floor": "F2_FIRST",
+        "node": "F2_FIRST_N4"
+      },
+      "bidirectional": true,
+      "cost": 2
+    },
+    {
+      "id": "V2_A",
+      "type": "stairs",
+      "from": {
+        "floor": "F2_FIRST",
+        "node": "F2_FIRST_N4"
+      },
+      "to": {
+        "floor": "F3_SECOND",
+        "node": "F3_SECOND_N5"
+      },
+      "bidirectional": true,
+      "cost": 2
+    },
+    {
+      "id": "V1_B",
+      "type": "stairs",
+      "from": {
+        "floor": "F1_GROUND",
+        "node": "F1_GROUND_N51"
+      },
+      "to": {
+        "floor": "F2_FIRST",
+        "node": "F2_FIRST_N5"
+      },
+      "bidirectional": true,
+      "cost": 2
+    },
+    {
+      "id": "V2_B",
+      "type": "stairs",
+      "from": {
+        "floor": "F2_FIRST",
+        "node": "F2_FIRST_N5"
+      },
+      "to": {
+        "floor": "F3_SECOND",
+        "node": "F3_SECOND_N6"
+      },
+      "bidirectional": true,
+      "cost": 2
+    }
+  ],
+  "zones": [
+    {
+      "id": "lobby",
+      "nodes": [
+        "F1_GROUND_N1",
+        "F1_GROUND_N3"
+      ]
+    },
+    {
+      "id": "reception",
+      "nodes": [
+        "F1_GROUND_N2"
+      ]
+    },
+    {
+      "id": "lobby_left",
+      "nodes": [
+        "F1_GROUND_N4"
+      ]
+    },
+    {
+      "id": "lobby_right",
+      "nodes": [
+        "F1_GROUND_N5"
+      ]
+    },
+    {
+      "id": "main_entrance",
+      "nodes": [
+        "F1_GROUND_N6"
+      ]
+    },
+    {
+      "id": "restaurant",
+      "nodes": [
+        "F1_GROUND_N10"
+      ]
+    },
+    {
+      "id": "bar",
+      "nodes": [
+        "F1_GROUND_N11"
+      ]
+    },
+    {
+      "id": "cafe",
+      "nodes": [
+        "F1_GROUND_N12"
+      ]
+    },
+    {
+      "id": "ballroom",
+      "nodes": [
+        "F1_GROUND_N20"
+      ]
+    },
+    {
+      "id": "pre_function",
+      "nodes": [
+        "F1_GROUND_N21"
+      ]
+    },
+    {
+      "id": "kitchen",
+      "nodes": [
+        "F1_GROUND_N30"
+      ]
+    },
+    {
+      "id": "prep_kitchen",
+      "nodes": [
+        "F1_GROUND_N31"
+      ]
+    },
+    {
+      "id": "dry_store",
+      "nodes": [
+        "F1_GROUND_N32"
+      ]
+    },
+    {
+      "id": "staff_lounge",
+      "nodes": [
+        "F1_GROUND_N33"
+      ]
+    },
+    {
+      "id": "staff_toilet",
+      "nodes": [
+        "F1_GROUND_N34"
+      ]
+    },
+    {
+      "id": "staff_locker",
+      "nodes": [
+        "F1_GROUND_N35"
+      ]
+    },
+    {
+      "id": "receiving",
+      "nodes": [
+        "F1_GROUND_N40"
+      ]
+    },
+    {
+      "id": "linen",
+      "nodes": [
+        "F1_GROUND_N41"
+      ]
+    },
+    {
+      "id": "housekeeping",
+      "nodes": [
+        "F1_GROUND_N42"
+      ]
+    },
+    {
+      "id": "engineering",
+      "nodes": [
+        "F1_GROUND_N43"
+      ]
+    },
+    {
+      "id": "security",
+      "nodes": [
+        "F1_GROUND_N44"
+      ]
+    },
+    {
+      "id": "admin",
+      "nodes": [
+        "F1_GROUND_N45"
+      ]
+    },
+    {
+      "id": "stairs_left",
+      "nodes": [
+        "F1_GROUND_N50"
+      ]
+    },
+    {
+      "id": "stairs_right",
+      "nodes": [
+        "F1_GROUND_N51"
+      ]
+    },
+    {
+      "id": "lift_main",
+      "nodes": [
+        "F1_GROUND_N52"
+      ]
+    },
+    {
+      "id": "service_lift",
+      "nodes": [
+        "F1_GROUND_N53"
+      ]
+    },
+    {
+      "id": "private",
+      "nodes": [
+        "F2_FIRST_N1",
+        "F2_FIRST_N2",
+        "F2_FIRST_N8",
+        "F3_SECOND_N1",
+        "F3_SECOND_N2",
+        "F3_SECOND_N3",
+        "F3_SECOND_N4",
+        "F3_SECOND_N5",
+        "F3_SECOND_N6",
+        "F3_SECOND_N7",
+        "F3_SECOND_N8",
+        "F3_SECOND_N9"
+      ]
+    },
+    {
+      "id": "corridor",
+      "nodes": [
+        "F2_FIRST_N3"
+      ]
+    },
+    {
+      "id": "public",
+      "nodes": [
+        "F2_FIRST_N4",
+        "F2_FIRST_N5",
+        "F2_FIRST_N6",
+        "F2_FIRST_N7"
+      ]
+    }
+  ]
+}

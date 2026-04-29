@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .heartbeateffect {
+    position: relative;
+    border-radius: 50%;
+    background: var(--heartbeat-color, var(--red));
+    box-shadow: 0 0 10px var(--heartbeat-color, var(--red));
+    animation: pulse-core 2s ease-in-out infinite both;
+  }
+
+  .heartbeateffect::before,
+  .heartbeateffect::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--heartbeat-color, var(--red));
+    background: transparent;
+    opacity: 0;
+    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  .heartbeateffect::after {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 1;
+    border-width: 4px;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+@keyframes pulse-core {
+  0%, 100% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* ─── CrisisSync Design System 2.0 (Cyber-Tactical) ─── */
+
+:root {
+  /* Ultra-Dark Palette */
+  --bg-primary: #04070d;
+  --bg-secondary: #080c14;
+  --bg-card: rgba(13, 18, 28, 0.85);
+  --bg-glass: rgba(13, 18, 28, 0.65);
+  --bg-glass-strong: rgba(13, 18, 28, 0.9);
+  
+  /* Tactical Borders */
+  --border-subtle: rgba(56, 189, 248, 0.1);
+  --border-medium: rgba(56, 189, 248, 0.2);
+  --border-glow: rgba(56, 189, 248, 0.4);
+  
+  /* Text Engine */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+
+  /* Tactical Accents */
+  --cyan: #06b6d4;
+  --blue: #3b82f6;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --emerald: #10b981;
+  --indigo: #6366f1;
+  --rose: #f43f5e;
+  
+  /* Zone Matrix */
+  --zone-a: #06b6d4;
+  --zone-a-rgb: 6, 182, 212;
+  --zone-b: #f59e0b;
+  --zone-b-rgb: 245, 158, 11;
+  --zone-c: #10b981;
+  --zone-c-rgb: 16, 185, 129;
+  --zone-d: #8b5cf6;
+  --zone-d-rgb: 139, 92, 246;
+
+  /* Elevation */
+  --shadow-tactical: 0 8px 32px -8px rgba(0, 0, 0, 0.8);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  background: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
+    linear-gradient(rgba(13, 18, 28, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 18, 28, 0.5) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ─── Layout Engine ─── */
+
+.mission-control {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  grid-template-rows: 64px 1fr;
+  gap: 16px;
+  height: 100vh;
+  padding: 16px;
+  position: relative;
+}
+
+/* ─── Glassmorphism ─── */
+
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px) saturate(1.8);
+  -webkit-backdrop-filter: blur(12px) saturate(1.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: var(--shadow-tactical);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+  opacity: 0.5;
+}
+
+/* ─── Header Bar ─── */
+
+.header-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: var(--bg-glass-strong);
+  border-bottom: 1px solid var(--border-medium);
+  border-radius: 12px;
+  z-index: 100;
+}
+
+/* ─── Sidebar Components ─── */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* ─── Main Map Area ─── */
+
+.map-container {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+.zone-map {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  background-color: #020617;
+  border: 1px solid var(--border-medium);
+  background-image: url('/Map.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* ─── Event Log & Diagnostics ─── */
+
+.diagnostic-panel {
+  grid-row: 2;
+  height: calc(100vh - 112px);
+}
+
+.event-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid var(--severity-info);
+  margin-bottom: 8px;
+  font-size: 11px;
+  animation: slide-in-right 0.3s ease-out;
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── Buttons & Controls ─── */
+
+.btn {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-glow);
+  color: var(--text-primary);
+}
+
+.btn.active {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.btn-primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* ─── Scrollbars ─── */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-glow);
+}
+
+/* ─── Components ─── */
+
+.sensor-gauge {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.gauge-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 12px 0 8px;
+}
+
+/* ─── Typography ─── */
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.text-cyan { color: var(--cyan); }
+.text-amber { color: var(--amber); }
+.text-emerald { color: var(--emerald); }
+.text-red { color: var(--red); }

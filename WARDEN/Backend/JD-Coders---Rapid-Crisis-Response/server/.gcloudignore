@@ -1,0 +1,19 @@
+.gcloudignore
+.git
+.gitignore
+.venv
+venv
+ENV
+env
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env.bak
+venv.bak
+# Docker ignore patterns
+node_modules
+.next
+.idea
+.vscode

@@ -1,0 +1,112 @@
+{
+  "floor": "Second Floor",
+
+  "nodes": [
+    {
+      "id": "N1",
+      "type": "room",
+      "label": "Classroom 201",
+      "x": 120,
+      "y": 90,
+      "capacity": 40,
+      "occupancy": 28,
+      "status": "normal"
+    },
+    {
+      "id": "N2",
+      "type": "room",
+      "label": "Classroom 202",
+      "x": 300,
+      "y": 90,
+      "capacity": 40,
+      "occupancy": 32,
+      "status": "normal"
+    },
+    {
+      "id": "N3",
+      "type": "lab",
+      "label": "Computer Lab",
+      "x": 480,
+      "y": 90,
+      "capacity": 50,
+      "occupancy": 45,
+      "status": "normal"
+    },
+    {
+      "id": "N4",
+      "type": "corridor",
+      "label": "Main Corridor",
+      "x": 300,
+      "y": 200,
+      "capacity": 120,
+      "occupancy": 25,
+      "status": "normal"
+    },
+    {
+      "id": "N5",
+      "type": "stairs",
+      "label": "Staircase A",
+      "x": 120,
+      "y": 320,
+      "capacity": 50,
+      "occupancy": 12,
+      "status": "normal"
+    },
+    {
+      "id": "N6",
+      "type": "stairs",
+      "label": "Staircase B",
+      "x": 480,
+      "y": 320,
+      "capacity": 50,
+      "occupancy": 10,
+      "status": "normal"
+    },
+    {
+      "id": "N7",
+      "type": "washroom",
+      "label": "Washroom",
+      "x": 600,
+      "y": 200,
+      "capacity": 20,
+      "occupancy": 6,
+      "status": "normal"
+    },
+    {
+      "id": "N8",
+      "type": "office",
+      "label": "Faculty Cabin",
+      "x": 720,
+      "y": 90,
+      "capacity": 15,
+      "occupancy": 9,
+      "status": "normal"
+    },
+    {
+      "id": "N9",
+      "type": "exit",
+      "label": "Emergency Exit",
+      "x": 300,
+      "y": 420,
+      "capacity": 200,
+      "occupancy": 0,
+      "status": "safe"
+    }
+  ],
+
+  "edges": [
+    { "from": "N1", "to": "N4", "weight": 1 },
+    { "from": "N2", "to": "N4", "weight": 1 },
+    { "from": "N3", "to": "N4", "weight": 1 },
+    { "from": "N4", "to": "N5", "weight": 1 },
+    { "from": "N4", "to": "N6", "weight": 1 },
+    { "from": "N5", "to": "N9", "weight": 1 },
+    { "from": "N6", "to": "N9", "weight": 1 },
+    { "from": "N4", "to": "N7", "weight": 1 },
+    { "from": "N7", "to": "N8", "weight": 1 }
+  ],
+
+  "graph": {
+    "directed": false
+  }
+}

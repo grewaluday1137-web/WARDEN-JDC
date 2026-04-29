@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: warden-backend
+  labels:
+    app: warden-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: warden-backend
+  template:
+    metadata:
+      labels:
+        app: warden-backend
+    spec:
+      containers:
+      - name: warden-backend
+        # Replace with your Google Artifact Registry / GCR image path
+        image: gcr.io/YOUR_PROJECT_ID/warden-backend:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: GEMINI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: warden-secrets
+              key: gemini-api-key
+        - name: FIREBASE_KEY_PATH
+          value: "/secrets/firebase_key.json"
+        volumeMounts:
+        - name: firebase-key-volume
+          mountPath: /secrets
+          readOnly: true
+      volumes:
+      - name: firebase-key-volume
+        secret:
+          secretName: firebase-credentials
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: warden-backend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: warden-backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

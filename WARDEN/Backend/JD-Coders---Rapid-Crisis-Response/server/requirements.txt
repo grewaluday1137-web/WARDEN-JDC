@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pydantic
+PyPDF2
+python-multipart
+firebase-admin
+passlib[bcrypt]
+python-jose[cryptography]
+python-dotenv
+python-docx
+httpx
+google-genai

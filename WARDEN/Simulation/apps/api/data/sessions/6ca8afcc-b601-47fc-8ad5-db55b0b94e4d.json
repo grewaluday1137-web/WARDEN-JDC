@@ -1,0 +1,36 @@
+{
+  "id": "6ca8afcc-b601-47fc-8ad5-db55b0b94e4d",
+  "startedAt": "2026-04-18T20:34:01.503Z",
+  "simulationMode": "auto",
+  "tickCount": 30,
+  "timeline": [
+    {
+      "tick": 1,
+      "timestamp": 1776544441504,
+      "type": "incident_triggered",
+      "zone": "A",
+      "detail": "fire detected in Zone A"
+    },
+    {
+      "tick": 5,
+      "timestamp": 1776544441504,
+      "type": "failure_injected",
+      "zone": "A",
+      "detail": "sensor:stuck_high — Zone A"
+    },
+    {
+      "tick": 10,
+      "timestamp": 1776544441505,
+      "type": "evacuation_started",
+      "detail": "3 agents"
+    },
+    {
+      "tick": 15,
+      "timestamp": 1776544441506,
+      "type": "incident_confirmed",
+      "zone": "A",
+      "detail": "fire confirmed in Zone A"
+    }
+  ],
+  "endedAt": "2026-04-18T20:34:01.506Z"
+}

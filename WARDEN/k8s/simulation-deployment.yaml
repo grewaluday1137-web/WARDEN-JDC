@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: warden-simulation
+  labels:
+    app: warden-simulation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: warden-simulation
+  template:
+    metadata:
+      labels:
+        app: warden-simulation
+    spec:
+      containers:
+      - name: warden-simulation
+        # Replace with your Google Artifact Registry / GCR image path
+        image: gcr.io/YOUR_PROJECT_ID/warden-simulation:latest
+        ports:
+        - containerPort: 3000
+        env:
+        # Assuming the Next.js app needs to know where the backend is
+        - name: NEXT_PUBLIC_BACKEND_URL
+          value: "http://warden-backend-service"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: warden-simulation-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: warden-simulation
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000

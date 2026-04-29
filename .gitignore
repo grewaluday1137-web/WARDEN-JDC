@@ -21,8 +21,6 @@
 **/*.zip
 **/*.tar.gz
 **/*.rar
-**/*.gguf
-**/*.mp4
 **/*.jpeg
 **/*.jpg
 **/*.png

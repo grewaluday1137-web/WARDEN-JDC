@@ -1,6 +1,0 @@
-node_modules/
-.git/
-.planning/
-external_assets/
-!dist/
-!dist/downloads/

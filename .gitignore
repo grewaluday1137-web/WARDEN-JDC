@@ -1,4 +1,4 @@
-﻿# Dependencies
+# Dependencies
 **/node_modules/
 **/.venv/
 **/env/
@@ -37,11 +37,13 @@ Thumbs.db
 
 # WARDEN specific
 **/.gradle/
-
 **/firebase_key.json
 **/*.pyc
 **/__pycache__/
 
-**/firebase_key.json
-**/*.pyc
-**/__pycache__/
+# Secrets & local config — NEVER commit these
+**/.env
+**/local.properties
+
+# Firebase CLI artifacts
+**/.firebase/

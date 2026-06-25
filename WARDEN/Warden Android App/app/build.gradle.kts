@@ -3,6 +3,15 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+import java.util.Properties
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(localPropertiesFile.inputStream())
+}
+val geminiApiKey = localProperties.getProperty("GEMINI_API_KEY") ?: "DEFAULT_KEY_NOT_FOUND"
+
 android {
     namespace = "com.jdcoders.crisisconnect"
     compileSdk = 35
@@ -14,6 +23,8 @@ android {
 
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField("String", "GEMINI_API_KEY", "\"${geminiApiKey}\"")
     }
 
     buildTypes {
@@ -33,6 +44,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {

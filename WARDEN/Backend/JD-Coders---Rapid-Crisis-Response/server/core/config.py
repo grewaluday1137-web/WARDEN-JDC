@@ -6,7 +6,7 @@ load_dotenv()
 
 class Settings:
     # Now os.getenv will actually find the values you put in the .env file
-    SECRET_KEY: str = os.getenv("SECRET_KEY", "jadoo")
+    SECRET_KEY: str = os.getenv("SECRET_KEY", "INSECURE_DEFAULT_DEV_KEY_CHANGE_ME")
     ALGORITHM: str = os.getenv("ALGORITHM", "HS256")
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
     FIREBASE_KEY_PATH: str = os.getenv("FIREBASE_KEY_PATH", "firebase_key.json")

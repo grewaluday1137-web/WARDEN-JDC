@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
  * It provides tactical summaries and safety recommendations for field responders.
  */
 class WardenAIService {
-    private val apiKey = "AIzaSyB8Nmal5Je-C-vEHF_HClRljXtruMIn6vg"
+    private val apiKey = com.jdcoders.crisisconnect.BuildConfig.GEMINI_API_KEY
     private val model = GenerativeModel(
         modelName = "gemini-1.5-flash",
         apiKey = apiKey

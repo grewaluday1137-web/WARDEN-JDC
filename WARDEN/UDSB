@@ -1,36 +1,211 @@
-# Warden Issue Resolution Summary
-
-## Session 1: Backend (Python / FastAPI)
-
-### Actions Taken
-1. **Disabled Database Persistence:** Modified `db_service.py`. Restored the `firebase_admin` initialization. The system now attempts to load `firebase_key.json` and connects to Firestore. If the key is missing or invalid, it gracefully falls back to the mocked print statements so development can continue without crashing.
-2. **Missing Vector Database:** Added `chromadb` to `requirements.txt` and created a new file at `services/vectorDB_service.py`. This new service implements a local PersistentClient to store and query high-dimensional embeddings for the AI reasoning relay (RAG pipeline).
-3. **Hardcoded Master Overrides:** Modified `guest_routes.py`. Removed the hardcoded `000000` OTP master override vulnerability entirely. All OTP validations are now forced through proper verification logic.
-4. **Faked Threat Verification:** Modified `routes.py`. Integrated the `google-genai` SDK into the `/verify-threat` and `/api/analyze` endpoints. If a valid `image_path` and `GEMINI_API_KEY` are provided, the image is passed to `gemini-2.5-flash` for real threat analysis. If the key or image is missing, it falls back to the mock to prevent simulation crashes.
-
-### Unresolved Issues
-- **Firebase Authentication Key (`firebase_key.json`):** Requires a valid service account key from the Google Cloud / Firebase console. Without it, database operates in mock fallback mode.
-- **Gemini API Key:** The `GEMINI_API_KEY` environment variable must be set for real vision threat verification. Without it, mock responses are used.
+# WARDEN — Comprehensive Audit Report (UDSB)
+**Date:** June 29, 2026
+**Auditor:** AI Code Audit Agent
 
 ---
 
-## Session 2: Simulation Engine (Node.js / Turborepo)
+## 1) Backend (Python / FastAPI)
 
-### Actions Taken
-1. **Fixed Local-First Rules Violation:** In `apps/api/src/server.ts` (line 301), replaced the hardcoded Google Cloud Run fallback URL (`https://warden-backend-774533752332.us-central1.run.app`) with `http://127.0.0.1:8000`. This complies with Rules.md (Rule 3) which mandates prioritizing local deployments over cloud defaults.
+### Working Condition
+The backend server skeleton is well-structured with clear separation into `api/`, `services/`, `core/`, `utils/`, and `workers/` directories. The FastAPI app initializes correctly with lifespan management, CORS middleware, JWT auth, WebSocket broadcasting, and a background alert-processing worker.
 
-2. **Refactored Monolithic Controller:** Split the 942-line `server.ts` into 9 modular files. Created a new `src/routes/` directory with the following route modules:
-   - `routes/simulation.ts` — Simulation start/stop, incident injection, resolve, playbook completion
-   - `routes/facility.ts` — Facility config, dependencies, validation, reset
-   - `routes/faults.ts` — Fault injection, clearing, state queries
-   - `routes/evacuation.ts` — Evacuation start/stop, status, dynamic route calculation
-   - `routes/tasks.ts` — ICS Task Board CRUD operations
-   - `routes/reports.ts` — Report generation and management
-   - `routes/sessions.ts` — Session listing and retrieval
-   - `routes/predictions.ts` — Prediction explainability endpoints
+### Errors & Problems
 
-   Each route module exports a factory function (`setupXxxRoutes(context)`) that receives shared state (floor engines, services, Socket.io instance) via a context object. The refactored `server.ts` now contains only core server setup, engine initialization, the master simulation loop, Socket.io connection handling, and startup logic — reduced to 391 lines (58% reduction).
+#### 🚨 CRITICAL: `auth_service.py` crashes when Firebase is disabled
+- **File:** `services/auth_service.py` (lines 6, 13, 23, 32)
+- **Problem:** All functions (`login_staff`, `login_guest`, `register_guest`, `register_staff`) call `db.collection(...)` directly on the module-level `db` variable from `db_service.py`. When `firebase_key.json` is missing, `db` is `None`, and calling `.collection()` on `None` will raise an `AttributeError` crash. Unlike `db_service.py` itself (which correctly guards with `if db:`), `auth_service.py` has **zero null checks**.
+- **Impact:** The `/auth/login`, `/auth/signup/guest`, and `/auth/signup/staff` endpoints will crash with an unhandled exception if Firebase is not configured.
 
-### Unresolved Issues
-- None for this session. Both issues were fully resolved.
+#### 🚨 CRITICAL: `routes.py` uses `time.time()` without importing `time`
+- **File:** `api/routes.py` (line 159)
+- **Problem:** The `/ws/alerts` WebSocket endpoint calls `int(time.time())` in the welcome message, but `time` is never imported in this file. This will cause a `NameError` crash on every new WebSocket connection to `/ws/alerts`.
+- **Impact:** The primary WebSocket alert endpoint used by the Android app and Desktop apps will fail on connection.
 
+#### 🚨 CRITICAL: Missing `static/` directory
+- **File:** `main.py` (line 40)
+- **Problem:** The app mounts `app.mount("/static", StaticFiles(directory="static"), name="static")`, but there is **no `static/` directory** in the server folder. FastAPI will throw a `RuntimeError` on startup because the directory does not exist.
+- **Impact:** The entire backend server will fail to start.
+
+#### 🚨 HIGH: OTP bypass still present in `otp_service.py`
+- **File:** `services/otp_service.py` (line 119)
+- **Problem:** Despite the `guest_routes.py` claiming "Master Override removed for security reasons", the underlying `verify_otp()` function in `otp_service.py` still contains a universal OTP bypass: `if code == "000000": return True`. Any user can bypass OTP verification with `000000`.
+- **Impact:** Security vulnerability. Any attacker can authenticate as any guest user.
+
+#### ⚠️ HIGH: Hardcoded Cloud Run URL for Simulation proxy
+- **File:** `api/routes.py` (line 16)
+- **Problem:** `SIM_URL` defaults to `https://warden-simulation-774533752332.us-central1.run.app` when `SIM_URL` env var is not set. This violates Rules.md Rule 3 (Local Over Cloud Defaults).
+- **Impact:** The catch-all `/api/{action:path}` proxy will forward all unmatched API requests to a Cloud Run instance that may not exist, causing 502 errors.
+
+#### ⚠️ MEDIUM: CORS is fully open (`allow_origins=["*"]`)
+- **File:** `main.py` (line 44)
+- **Problem:** CORS allows all origins, methods, and headers. This is acceptable for local dev but is a security risk in production.
+
+#### ⚠️ MEDIUM: `ai_routes.py` crashes at import time without API key
+- **File:** `api/ai_routes.py` (line 12)
+- **Problem:** `Client(api_key=os.getenv("GEMINI_API_KEY"))` is called at module level. If the key is empty/None, the Gemini client initialization may fail or produce subtle errors on the very first request. The `/api/ai/chat` endpoint has no graceful fallback — it raises HTTP 500.
+
+#### ⚠️ LOW: `decision_engine.py` media URLs use `localhost:8000`
+- **File:** `core/decision_engine.py` (lines 35-39)
+- **Problem:** Evidence media URLs are hardcoded to `http://localhost:8000/static/...` which won't work for remote clients and depends on the missing `static/` directory.
+
+---
+
+## 2) Responder Desktop App (Rust / Tauri & React)
+
+### Working Condition
+The React frontend is well-built with a clean component structure, dedicated hooks, services, and utility layers. The Tauri/Rust backend now includes auto-assembly logic for the fragmented model file (added in prior fix session).
+
+### Errors & Problems
+
+#### 🚨 CRITICAL: Missing `llama-server.exe` executable
+- **File:** `src-tauri/src/main.rs` (line 17)
+- **Problem:** The Rust setup function attempts to spawn `binaries/llama-server.exe` but this file does not exist in the repository. The app will print an error and **skip all AI sidecar initialization**, meaning the local Gemma model will never run.
+- **Impact:** The offline AI capability (Rule 5: Offline Resilience) is completely non-functional.
+
+#### 🚨 CRITICAL: Hardcoded Cloud Run URLs in React frontend
+- **File:** `src/config.js` (lines 1-2)
+  - `BACKEND_URL` → `https://warden-backend-774533752332.us-central1.run.app`
+  - `SIMULATION_URL` → `https://warden-simulation-774533752332.us-central1.run.app`
+- **File:** `src/api.js` (line 1)
+  - `BASE` → `https://warden-backend-774533752332.us-central1.run.app`
+- **Problem:** Two separate files hardcode Cloud Run URLs. The app will fail to communicate with any local backend. Violates Rules.md Rule 3.
+- **Impact:** All REST API calls (fetching alerts, updating status, fetching reports) and WebSocket connections will fail when running locally.
+
+#### ⚠️ MEDIUM: Unused Tauri plugin imports
+- **File:** `src-tauri/src/main.rs` (lines 4-5)
+- **Problem:** `tauri_plugin_shell::ShellExt` and `tauri_plugin_shell::process::CommandEvent` are imported but never used (the spawn logic uses `std::process::Command` directly).
+
+---
+
+## 3) Simulation Engine (Node.js / Turborepo)
+
+### Working Condition
+Highly advanced and well-architected. The multi-floor simulation engine features modular engine sets per floor (EnvironmentEngine, SensorGrid, BLEEngine, StateMachine, CellularAutomata, EvacuationEngine, PredictionEngine), a master tick loop with vertical physics propagation between floors, and Socket.io for real-time dashboard updates. The code has been refactored into modular route files.
+
+### Errors & Problems
+
+#### 🚨 CRITICAL: Hardcoded JWT token in source code
+- **File:** `apps/api/src/services/external-alert-service.ts` (line 11)
+- **Problem:** A full JWT token is hardcoded as a string literal: `const AUTH_TOKEN = 'eyJhbGci...'`. This is a **direct violation** of Rules.md Rule 1 (No Hardcoded Secrets). Anyone with access to the repository can decode and use this token.
+- **Impact:** Security vulnerability. The token grants `staff/admin` privileges to the simulation engine's identity.
+
+#### 🚨 HIGH: Hardcoded Cloud Run fallback URL in `external-alert-service.ts`
+- **File:** `apps/api/src/services/external-alert-service.ts` (line 10)
+- **Problem:** `EXTERNAL_API_URL` defaults to `https://warden-backend-774533752332.us-central1.run.app` when `EXTERNAL_API_URL` env var is not set. Violates Rule 3.
+- **Impact:** Alert dispatching will silently fail when running locally without the env var configured.
+
+#### ⚠️ MEDIUM: Duplicate root route handler
+- **File:** `apps/api/src/server.ts` (lines 62-69 and 177-195)
+- **Problem:** The `'/'` route is registered twice — once serving the static dashboard HTML (line 62) and again serving inline HTML (line 177). The second handler will shadow the first.
+
+#### ⚠️ MEDIUM: `.env` file committed to repository
+- **File:** `apps/api/.env`
+- **Problem:** The `.env` file is tracked in version control. While it only contains `PORT=3001` and `CV_ENGINE_URL`, this sets a bad precedent and violates the spirit of Rules.md Rule 1. If secrets are later added, they would be committed.
+
+#### ⚠️ LOW: Workspace uses `concurrently` instead of Turborepo
+- **File:** Root `package.json` (line 10)
+- **Problem:** The `dev` script uses `concurrently` rather than Turborepo's `turbo run dev`. The TRD.md and Rules.md (Rule 8) specify Turborepo-based monorepo management, but there is no `turbo.json` config file. The monorepo is effectively a standard npm workspace, not a Turborepo.
+
+---
+
+## 4) Staff Desktop App (Rust / Tauri & React)
+
+### Working Condition
+The React/TypeScript frontend is functional with a rich component set. The Tauri/Rust backend now includes auto-assembly logic for fragmented model files (added in prior fix session).
+
+### Errors & Problems
+
+#### 🚨 CRITICAL: Missing `llama-server.exe` executable
+- **File:** `app/src-tauri/src/main.rs` (line 15)
+- **Problem:** Identical to the Responder App. The `binaries/llama-server.exe` file does not exist. The AI sidecar will not start.
+- **Impact:** Offline AI (Gemma-2b) is completely non-functional.
+
+#### 🚨 CRITICAL: Hardcoded Cloud Run URL in React frontend
+- **File:** `app/src/config.ts` (line 1)
+  - `API_BASE_URL` → `https://warden-backend-774533752332.us-central1.run.app`
+- **Problem:** The Staff Desktop App's React frontend hardcodes the Cloud Run backend URL. All API calls will fail when running the backend locally. Violates Rule 3.
+- **Impact:** The Command & Control dashboard cannot communicate with the local backend.
+
+#### ⚠️ LOW: `LOCAL_AI_URL` in config.ts correctly points to localhost
+- **File:** `app/src/config.ts` (line 2)
+- **Note:** The local AI URL (`http://127.0.0.1:8080/v1/chat/completions`) is correctly configured for the local llama-server sidecar. This is good, but it is useless until `llama-server.exe` is provided.
+
+---
+
+## 5) Warden Android App (Android / Kotlin Compose)
+
+### Working Condition
+Beautifully structured modern Android application using Jetpack Compose, Kotlin Coroutines, and a clean MVVM architecture. WebSocket integration for real-time alert reception, simulation tick processing, and broadcast messages is well-implemented. The `WardenViewModel` correctly aggregates alert, broadcast, and floor-state data from the WebSocket service.
+
+### Errors & Problems
+
+#### ✅ PREVIOUSLY FIXED: `BASE_URL` now points to local emulator IP
+- **File:** `app/src/main/java/com/jdcoders/crisisconnect/services/ApiConfig.kt` (line 15)
+- **Status:** `BASE_URL` is now `http://10.0.2.2:8000` (fixed in prior session). This correctly maps to the host machine's localhost from the Android Emulator.
+
+#### ⚠️ MEDIUM: Retrofit instance is lazily initialized and not reconfigurable
+- **File:** `services/ApiConfig.kt` (lines 25-31)
+- **Problem:** The `retrofit` instance is initialized with `by lazy {}`, meaning it captures the `BASE_URL` value at first access. If `BASE_URL` is changed at runtime (it's a `var`), the Retrofit instance will still use the old URL. This makes runtime URL switching unreliable.
+
+#### ⚠️ LOW: Live location sharing sends a hardcoded zone `"A"`
+- **File:** `screens/home/WardenViewModel.kt` (line 112)
+- **Problem:** The simulation inject payload always sets `"zone" to "A"` as a fallback, regardless of the actual zone. This could cause incorrect map pulsing on the Desktop apps.
+
+---
+
+## 6) Website (Vite / React / Tailwind)
+
+### Working Condition
+A functional React 19 + Vite + Tailwind CSS 4 project with routing (`react-router-dom`), animations (`framer-motion`), and icons (`lucide-react`). The app serves a single landing page via a `Navbar` + `LandingPage` layout.
+
+### Errors & Problems
+
+#### 🚨 HIGH: Hardcoded Cloud Run URL in landing page
+- **File:** `src/pages/LandingPage.tsx` (line 314)
+- **Problem:** A call-to-action button links directly to `https://warden-simulation-774533752332.us-central1.run.app`. This hardcodes a cloud endpoint in the public-facing website. Violates Rule 3.
+- **Impact:** The "Launch Simulation" button will redirect users to a cloud instance that may not exist or be properly configured.
+
+#### ⚠️ MEDIUM: Package named `"redesign"` instead of `"warden-website"`
+- **File:** `package.json` (line 3)
+- **Problem:** The package is named `"redesign"`, which is a leftover from scaffolding. It should be named something like `"warden-website"` or `"warden-web"` for clarity in the monorepo.
+
+#### ⚠️ LOW: Single-page application with only one route
+- **Problem:** The app only has a single route (`/` → `LandingPage`). While functional, it is a minimal scaffolding with no additional content pages, download links, or documentation sections as outlined in the Implementation.md.
+
+---
+
+## Summary of All Hardcoded Cloud URLs (Rule 3 Violations)
+
+| File | Variable/Constant | Current Value |
+|---|---|---|
+| `Backend/server/api/routes.py:16` | `SIM_URL` | `https://warden-simulation-...us-central1.run.app` |
+| `Simulation/apps/api/src/services/external-alert-service.ts:10` | `EXTERNAL_API_URL` | `https://warden-backend-...us-central1.run.app` |
+| `Responder Desktop App/src/config.js:1` | `BACKEND_URL` | `https://warden-backend-...us-central1.run.app` |
+| `Responder Desktop App/src/config.js:2` | `SIMULATION_URL` | `https://warden-simulation-...us-central1.run.app` |
+| `Responder Desktop App/src/api.js:1` | `BASE` | `https://warden-backend-...us-central1.run.app` |
+| `Staff Desktop App/app/src/config.ts:1` | `API_BASE_URL` | `https://warden-backend-...us-central1.run.app` |
+| `Website/src/pages/LandingPage.tsx:314` | (inline href) | `https://warden-simulation-...us-central1.run.app` |
+
+---
+
+## Summary of Security Vulnerabilities
+
+| Severity | Issue | File |
+|---|---|---|
+| 🚨 CRITICAL | Hardcoded JWT token in source code | `Simulation/external-alert-service.ts:11` |
+| 🚨 CRITICAL | Universal OTP bypass (`000000`) | `Backend/services/otp_service.py:119` |
+| ⚠️ MEDIUM | CORS fully open (`*`) | `Backend/main.py:44` |
+| ⚠️ MEDIUM | `.env` tracked in version control | `Simulation/apps/api/.env` |
+
+---
+
+## Summary of Missing Dependencies / Files
+
+| Item | Expected Location | Status |
+|---|---|---|
+| `llama-server.exe` | `Responder Desktop App/src-tauri/binaries/` | ❌ Missing |
+| `llama-server.exe` | `Staff Desktop App/app/src-tauri/binaries/` | ❌ Missing |
+| `static/` directory | `Backend/server/static/` | ❌ Missing (will crash server) |
+| `firebase_key.json` | `Backend/server/` | ❌ Missing (expected, falls back to mock) |
+| `.env` file | `Backend/server/` | ❌ Missing (only `.env.example` provided) |
+| `turbo.json` | `Simulation/` | ❌ Missing (Turborepo not actually configured) |

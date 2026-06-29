@@ -30,6 +30,7 @@ WARDEN operates on a fully audited, high-reliability microservice architecture:
 - **Staff Desktop App (Rust / Tauri & React):** High-performance Command & Control dashboard featuring map rendering and local AI (Gemma) insights.
 - **Responder Desktop App (Rust / Tauri & React):** Field tactical dashboard optimized for rapid deployments.
 - **Mobile Client (Android / Kotlin Compose):** Mobile-first endpoint for field interactions.
+- **Public Website (React / Vite / Tailwind):** A public-facing informational portal and landing page for WARDEN, providing ecosystem overviews and app download links.
 
 ## 5. Core Features & Requirements
 ### 5.1 Real-Time Digital Twin

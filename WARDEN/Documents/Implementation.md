@@ -49,7 +49,7 @@ WARDEN is a distributed system consisting of five primary sub-projects. Implemen
         *   Shares the `Local AI Sidecar` module with the Staff App for complete offline resilience in concrete/steel environments without network connectivity.
         *   `Task Receiver`: A specialized, simplified UI that only displays active assignments and immediate local hazards, preventing cognitive overload.
 
-### 5. Mobile Endpoint: Warden Android App (Kotlin)
+### 2.5 Mobile Endpoint: Warden Android App (Kotlin)
 *   **Role:** Civilian and responder mobile interface.
 *   **Implementation Requirements:**
     *   **Environment:** Android SDK 34+, Kotlin, Jetpack Compose.
@@ -57,6 +57,14 @@ WARDEN is a distributed system consisting of five primary sub-projects. Implemen
         *   `SOS Broadcaster`: A high-priority service that bypasses standard queues to blast GPS/Indoor location data to the FastAPI backend.
         *   `Indoor Navigator`: Renders the dynamic safe-paths pushed by the Backend.
         *   `Secure Chat`: Real-time chat interface connected directly to the Command Staff.
+
+### 2.6 Public Website (Vite / React / Tailwind)
+*   **Role:** Public informational portal and landing page for the WARDEN ecosystem.
+*   **Implementation Requirements:**
+    *   **Environment:** Node.js, React 19, Vite, Tailwind CSS 4.
+    *   **Core Modules:**
+        *   `Landing Page`: High-level overview of the WARDEN system capabilities.
+        *   `App Distribution`: Download links for the Android APK and Desktop installer binaries.
 
 ---
 

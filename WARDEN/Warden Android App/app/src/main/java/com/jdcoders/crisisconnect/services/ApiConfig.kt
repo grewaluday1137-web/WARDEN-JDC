@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 object ApiConfig {
     // Use 10.0.2.2 for Android Emulator (maps to host localhost)
     // Change to your machine's WiFi IP (e.g. 192.168.1.100) for physical devices
-    var BASE_URL = "https://warden-backend-774533752332.us-central1.run.app"
+    var BASE_URL = "http://10.0.2.2:8000"
 
     val okHttpClient: OkHttpClient by lazy {
         OkHttpClient.Builder()

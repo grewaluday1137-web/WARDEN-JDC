@@ -30,6 +30,10 @@ The WARDEN ecosystem relies on a distributed, microservice-like architecture spa
 *   **Language & UI:** Kotlin, Jetpack Compose.
 *   **Features:** SOS broadcasting, BLE/Wi-Fi based emergency indoor navigation, real-time chat.
 
+### 2.5 Public Website
+*   **Framework:** React 19, Vite, Tailwind CSS 4.
+*   **Purpose:** Serves as the public-facing landing page for the WARDEN ecosystem, providing system documentation, app download links, and general information.
+
 ## 3. Databases Used
 WARDEN relies on a hybrid database approach to support both real-time syncing and AI-driven spatial data.
 

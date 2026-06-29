@@ -19,6 +19,28 @@ fn main() {
                 .resolve("binaries/gemma-4-e2b.gguf", tauri::path::BaseDirectory::Resource)
                 .unwrap_or_default();
 
+            // Attempt to auto-rejoin fragmented model files if unified file does not exist
+            if !model_path.exists() {
+                println!("[APP] 📦 Assembling fragmented model files...");
+                let part1 = app.path().resolve("binaries/gemma-4-e2b.gguf.part1", tauri::path::BaseDirectory::Resource).unwrap_or_default();
+                let part2 = app.path().resolve("binaries/gemma-4-e2b.gguf.part2", tauri::path::BaseDirectory::Resource).unwrap_or_default();
+                let part3 = app.path().resolve("binaries/gemma-4-e2b.gguf.part3", tauri::path::BaseDirectory::Resource).unwrap_or_default();
+                
+                if part1.exists() && part2.exists() && part3.exists() {
+                    use std::fs::File;
+                    use std::io;
+                    
+                    if let Ok(mut out_file) = File::create(&model_path) {
+                        for part_path in [&part1, &part2, &part3] {
+                            if let Ok(mut in_file) = File::open(part_path) {
+                                let _ = io::copy(&mut in_file, &mut out_file);
+                            }
+                        }
+                        println!("[APP] ✅ Successfully assembled model file.");
+                    }
+                }
+            }
+
             if !exe_path.exists() || exe_path.to_string_lossy().is_empty() {
                 eprintln!("[APP] ❌ AI Server executable not found at: {:?}", exe_path);
                 return Ok(()); // Stop setup but don't panic

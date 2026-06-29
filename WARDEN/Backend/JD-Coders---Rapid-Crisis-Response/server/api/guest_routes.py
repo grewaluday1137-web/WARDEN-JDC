@@ -78,18 +78,7 @@ async def verify_otp_endpoint(body: OTPVerifyBody):
     """
     Verify the OTP. On success, return a JWT for the Android app.
     """
-    # ─── Master Override for Testing ──────────────────────────────────────────
-    if body.otp == "000000":
-        to = (body.email or "test@warden.com").strip() or "test@warden.com"
-        print(f"[OTP] [MASTER OVERRIDE] used for {to}")
-        token = create_token({
-            "sub": to,
-            "name": "Test Guest",
-            "room": "999",
-            "role": "guest",
-        })
-        return {"access_token": token, "token_type": "bearer", "name": "Test Guest"}
-    # ──────────────────────────────────────────────────────────────────────────
+    # Master Override removed for security reasons
 
     to = body.email.strip() if body.email else None
     

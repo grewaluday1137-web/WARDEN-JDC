@@ -51,19 +51,33 @@ async def receive_alert(data: dict):
 @router.post("/api/analyze")
 async def analyze_zone(data: dict):
     """
-    Endpoint for general camera verification (fire, smoke, etc.)
+    Endpoint for general camera verification (fire, smoke, etc.) using Gemini.
     """
-    # Simple heuristic for now, or could call a specific vision service
     incident_type = data.get("incident_type", "unknown")
     zone_id = data.get("zone_id", "unknown")
+    image_path = data.get("image_path")
     
-    # In a real system, we'd analyze a camera frame here.
-    # For now, we return high-confidence confirmation for simulation stability.
+    # Actually call Gemini if an image is provided
+    try:
+        from google import genai
+        api_key = os.getenv("GEMINI_API_KEY")
+        if api_key and image_path and os.path.exists(image_path):
+            client = genai.Client(api_key=api_key)
+            img = client.files.upload(file=image_path)
+            prompt = f"Analyze this camera zone {zone_id} for {incident_type}. Is there a threat? Return JSON: 'confirmed' (bool), 'confidence' (float), 'detection_type' (str), 'signals' (list of str)."
+            response = client.models.generate_content(model='gemini-2.5-flash', contents=[img, prompt])
+            import json
+            text_clean = response.text.replace("```json", "").replace("```", "").strip()
+            return json.loads(text_clean)
+    except Exception as e:
+        print(f"[VISION-ERROR] {e}")
+
+    # Fallback for simulation stability
     return {
         "confirmed": True,
         "confidence": 0.92,
         "detection_type": incident_type,
-        "signals": ["visual_confirmation", "heat_signature"]
+        "signals": ["fallback_visual_confirmation", "heat_signature"]
     }
 
 @router.post("/verify-threat")
@@ -72,13 +86,30 @@ async def verify_threat(data: dict):
     Endpoint for the simulation engine to request Gemini Vision verification.
     data: { agent_id, node_id, floor, image_path, context }
     """
-    # Pure Relay: Automatically confirm threats for simulation stability.
-    # The actual tactical analysis now happens on the Desktop/Android apps.
+    image_path = data.get("image_path")
+    context = data.get("context", {})
+    incident_type = context.get("incident_type", "detected")
+    
+    try:
+        from google import genai
+        api_key = os.getenv("GEMINI_API_KEY")
+        if api_key and image_path and os.path.exists(image_path):
+            client = genai.Client(api_key=api_key)
+            img = client.files.upload(file=image_path)
+            prompt = f"Verify threat. Context: {context}. Return JSON: 'confirmed' (bool), 'confidence' (float), 'detection_type' (str), 'signals' (list)."
+            response = client.models.generate_content(model='gemini-2.5-flash', contents=[img, prompt])
+            import json
+            text_clean = response.text.replace("```json", "").replace("```", "").strip()
+            return json.loads(text_clean)
+    except Exception as e:
+        print(f"[VISION-ERROR] {e}")
+
+    # Pure Relay fallback
     return {
         "confirmed": True,
         "confidence": 1.0,
-        "detection_type": data.get("context", {}).get("incident_type", "detected"),
-        "signals": ["manual_relay_active"]
+        "detection_type": incident_type,
+        "signals": ["manual_relay_active_fallback"]
     }
 
 

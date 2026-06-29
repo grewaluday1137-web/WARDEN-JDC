@@ -1,73 +1,51 @@
 import os
-from google import genai
-from google.genai import types
-from google.cloud.firestore_v1.vector import Vector
-from google.cloud.firestore_v1.base_vector_query import DistanceMeasure
-from core.config import settings
-from services.db_service import db
+import chromadb
+from chromadb.config import Settings
 
-# 2. AI Connection (Standard Developer API)
-client = genai.Client(api_key=settings.GEMINI_API_KEY)
+# Initialize ChromaDB client. 
+# It creates a local persistent database in a "vector_db" folder relative to this file.
+db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "vector_db")
+client = chromadb.PersistentClient(path=db_path)
 
-def get_embedding(text: str):
+# Retrieve or create a collection for incident contexts and protocols
+collection = client.get_or_create_collection(name="warden_knowledge_base")
+
+def add_document(doc_id: str, text: str, metadata: dict = None):
     """
-    Generates high-dimensional vectors and forces them to 768 dimensions 
+    Adds a document (e.g., safety protocol, floorplan info) to the Vector DB.
     """
     try:
-        response = client.models.embed_content(
-            model="models/gemini-embedding-2-preview", 
-            contents=text,
-           
-            config=types.EmbedContentConfig(output_dimensionality=768)
+        collection.add(
+            documents=[text],
+            metadatas=[metadata] if metadata else [{}],
+            ids=[doc_id]
         )
-        return response.embeddings[0].values
+        print(f"[VectorDB] Successfully added document {doc_id}")
     except Exception as e:
-        print(f"[ERROR] Default Prefix Failed. Trying fallback: {e}")
-        try:
-            response = client.models.embed_content(
-                model="gemini-embedding-2-preview", 
-                contents=text,
-                config=types.EmbedContentConfig(output_dimensionality=768)
-            )
-            return response.embeddings[0].values
-        except Exception as fallback_e:
-            print(f"[ERROR] Fallback Embedding Failed: {fallback_e}")
-            return [0.0] * 768
-    
+        print(f"[VectorDB] Error adding document: {e}")
 
-def store_embeddings(chunks, filename):
+def query_context(query_text: str, n_results: int = 3) -> list:
     """
-    Chunks: List of strings from your safety manual.
-    filename: Used to create unique IDs.
+    Queries the Vector DB for similar documents to provide RAG context.
     """
-    collection_ref = db.collection("safety_manuals")
-    
-    for i, chunk in enumerate(chunks):
-        embedding_values = get_embedding(chunk)
-        
-        doc_id = f"{filename}_{i}"
-        collection_ref.document(doc_id).set({
-            "id": doc_id,
-            "text": chunk,
-            "embedding": Vector(embedding_values), 
-            "source": filename,
-            "model": "gemini-embedding-2-preview"
-        })
-        
-    print(f"[SUCCESS] Stored {len(chunks)} chunks from {filename} into Firestore.")
+    try:
+        results = collection.query(
+            query_texts=[query_text],
+            n_results=n_results
+        )
+        # return the list of matched document strings
+        if results and results.get("documents") and len(results["documents"]) > 0:
+            return results["documents"][0]
+        return []
+    except Exception as e:
+        print(f"[VectorDB] Error querying context: {e}")
+        return []
 
-def search_similar(query_text, top_k=3):
-    """SEARCHES FIRESTORE"""
-    collection_ref = db.collection("safety_manuals")
-    
-    query_vector = get_embedding(query_text)
-    
-    # DistanceMeasure is now properly imported from base_vector_query
-    results = collection_ref.find_nearest(
-        vector_field="embedding",
-        query_vector=Vector(query_vector),
-        distance_measure=DistanceMeasure.COSINE, 
-        limit=top_k
-    ).get()
-
-    return [doc.to_dict() for doc in results]
+def get_rag_context(incident_description: str) -> str:
+    """
+    Convenience method to get a single concatenated string of relevant knowledge.
+    """
+    docs = query_context(incident_description)
+    if docs:
+        return "\n\n".join(docs)
+    return "No additional historical or spatial context found."

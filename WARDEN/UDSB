@@ -5,29 +5,6 @@ Highly advanced and well-architected. The multi-floor simulation engine features
 
 ### Errors & Problems
 
-#### 🚨 CRITICAL: Hardcoded JWT token in source code
-- **File:** `apps/api/src/services/external-alert-service.ts` (line 11)
-- **Problem:** A full JWT token is hardcoded as a string literal: `const AUTH_TOKEN = 'eyJhbGci...'`. This is a **direct violation** of Rules.md Rule 1 (No Hardcoded Secrets). Anyone with access to the repository can decode and use this token.
-- **Impact:** Security vulnerability. The token grants `staff/admin` privileges to the simulation engine's identity.
-
-#### 🚨 HIGH: Hardcoded Cloud Run fallback URL in `external-alert-service.ts`
-- **File:** `apps/api/src/services/external-alert-service.ts` (line 10)
-- **Problem:** `EXTERNAL_API_URL` defaults to `https://warden-backend-774533752332.us-central1.run.app` when `EXTERNAL_API_URL` env var is not set. Violates Rule 3.
-- **Impact:** Alert dispatching will silently fail when running locally without the env var configured.
-
-#### ⚠️ MEDIUM: Duplicate root route handler
-- **File:** `apps/api/src/server.ts` (lines 62-69 and 177-195)
-- **Problem:** The `'/'` route is registered twice — once serving the static dashboard HTML (line 62) and again serving inline HTML (line 177). The second handler will shadow the first.
-
-#### ⚠️ MEDIUM: `.env` file committed to repository
-- **File:** `apps/api/.env`
-- **Problem:** The `.env` file is tracked in version control. While it only contains `PORT=3001` and `CV_ENGINE_URL`, this sets a bad precedent and violates the spirit of Rules.md Rule 1. If secrets are later added, they would be committed.
-
-#### ⚠️ LOW: Workspace uses `concurrently` instead of Turborepo
-- **File:** Root `package.json` (line 10)
-- **Problem:** The `dev` script uses `concurrently` rather than Turborepo's `turbo run dev`. The TRD.md and Rules.md (Rule 8) specify Turborepo-based monorepo management, but there is no `turbo.json` config file. The monorepo is effectively a standard npm workspace, not a Turborepo.
-
----
 
 ## 4) Staff Desktop App (Rust / Tauri & React)
 

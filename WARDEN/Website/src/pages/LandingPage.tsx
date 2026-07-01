@@ -311,7 +311,7 @@ export default function LandingPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <a href="https://warden-simulation-774533752332.us-central1.run.app" className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-gradient-to-r from-red-600 to-red-500 text-white font-black text-lg transition-all shadow-[0_20px_40px_-10px_rgba(239,68,68,0.5)] hover:shadow-[0_30px_60px_-15px_rgba(239,68,68,0.7)] hover:-translate-y-2 active:translate-y-1 flex items-center justify-center gap-3 border-b-4 border-red-800">
+              <a href="http://localhost:3000" className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-gradient-to-r from-red-600 to-red-500 text-white font-black text-lg transition-all shadow-[0_20px_40px_-10px_rgba(239,68,68,0.5)] hover:shadow-[0_30px_60px_-15px_rgba(239,68,68,0.7)] hover:-translate-y-2 active:translate-y-1 flex items-center justify-center gap-3 border-b-4 border-red-800">
                 LIVE SIMULATION <ArrowRight className="w-6 h-6" />
               </a>
               <button className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-slate-800/50 backdrop-blur-md text-white font-bold text-lg border border-slate-600 hover:bg-slate-700/80 hover:border-slate-400 transition-all shadow-xl hover:-translate-y-2 active:translate-y-1">

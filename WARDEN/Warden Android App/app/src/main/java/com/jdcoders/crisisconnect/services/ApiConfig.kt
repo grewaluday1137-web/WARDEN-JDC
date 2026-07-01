@@ -22,13 +22,11 @@ object ApiConfig {
             .build()
     }
 
-    val retrofit: Retrofit by lazy {
-        Retrofit.Builder()
-            .baseUrl("$BASE_URL/")
-            .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
+    val retrofit: Retrofit get() = Retrofit.Builder()
+        .baseUrl("$BASE_URL/")
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
     fun getWebSocketUrl(): String {
         return BASE_URL.replace("http://", "ws://").replace("https://", "wss://") + "/ws/alerts"

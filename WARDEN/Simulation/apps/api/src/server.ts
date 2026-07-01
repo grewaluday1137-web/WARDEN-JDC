@@ -174,25 +174,7 @@ function getFloor(body: any): FloorId {
 }
 
 // ─── REST API Routes ──────────────────────────────────────────────────────────
-app.get('/', (_req, res) => {
-  res.send(`
-    <div style="font-family: sans-serif; padding: 2rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-      <h1 style="color: #2563eb;">WARDEN Simulation API</h1>
-      <p>The multi-floor simulation engine is <strong>LIVE</strong> and running.</p>
-      <div style="background: #f3f4f6; padding: 1rem; border-radius: 8px;">
-        <h3 style="margin-top: 0;">Available Endpoints:</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li>✅ <a href="/api/health">/api/health</a> - Check status and ticks</li>
-          <li>✅ <a href="/api/snapshot">/api/snapshot</a> - Get full simulation state</li>
-          <li>✅ <a href="/api/facility/config">/api/facility/config</a> - View facility layout</li>
-        </ul>
-      </div>
-      <p style="color: #6b7280; font-size: 0.875rem; margin-top: 2rem;">
-        Status: <strong>Running on Port 3001</strong>
-      </p>
-    </div>
-  `);
-});
+
 
 app.get('/api/health', (_req, res) => {
   res.json({

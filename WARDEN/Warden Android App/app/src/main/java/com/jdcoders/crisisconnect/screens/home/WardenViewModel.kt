@@ -109,7 +109,7 @@ class WardenViewModel(
                 try {
                     // 2. Inject into Simulation to pulse on Desktop Map
                     val injectPayload = mapOf(
-                        "zone" to "A", // Fallback zone if node mapping isn't perfectly strict
+                        "zone" to node.id,
                         "incidentType" to "medical_emergency", // Will pulse as a standard incident on desktop
                         "floor" to if (floorId.key == "F1_GROUND") 1 else if (floorId.key == "F2_FIRST") 2 else 3,
                         "nodeId" to node.id

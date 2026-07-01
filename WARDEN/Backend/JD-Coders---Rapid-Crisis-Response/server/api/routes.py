@@ -12,8 +12,10 @@ from .websocket import manager
 from services.alert_store import get_all_alerts, get_alert_by_id, update_alert_field, append_media
 
 import os
+import time
+
 router = APIRouter()
-SIM_URL = os.getenv("SIM_URL", "https://warden-simulation-774533752332.us-central1.run.app")
+SIM_URL = os.getenv("SIM_URL", "http://localhost:3000")
 
 @router.post("/api/simulation/tick")
 async def receive_tick(data: dict):

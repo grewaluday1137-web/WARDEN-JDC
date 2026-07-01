@@ -7,8 +7,8 @@ import { SystemEvent, Zone } from '../types';
 import * as fs from 'fs';
 import * as path from 'path';
 
-const EXTERNAL_API_URL = process.env.EXTERNAL_API_URL || 'https://warden-backend-774533752332.us-central1.run.app';
-const AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNpbS1pZC0wMDEiLCJ1c2VybmFtZSI6InNpbXVsYXRpb25fZW5naW5lIiwicm9sZSI6InN0YWZmIiwic3RhZmZfcm9sZSI6ImFkbWluIiwiZXhwIjoxNzg0MDE2Mjc1fQ.u-faHhqtOCJ9a8DnGhTYfsiYy8DmFaKCr-n16BSt-ZE';
+const EXTERNAL_API_URL = process.env.EXTERNAL_API_URL || 'http://localhost:8000';
+const AUTH_TOKEN = process.env.SIMULATION_AUTH_TOKEN || '';
 
 // Load facility graph to determine specific node names per zone
 let facilityNodes: any[] = [];

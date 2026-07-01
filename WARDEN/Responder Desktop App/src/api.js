@@ -1,4 +1,4 @@
-const BASE = 'https://warden-backend-774533752332.us-central1.run.app';
+const BASE = 'http://localhost:8000';
 
 /**
  * Fetch all stored alerts from the backend (REST fallback for initial load).

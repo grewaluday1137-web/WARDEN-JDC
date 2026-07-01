@@ -1,8 +1,6 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use tauri_plugin_shell::ShellExt;
-use tauri_plugin_shell::process::CommandEvent;
 
 use tauri::Manager;
 
@@ -44,8 +42,26 @@ fn main() {
             }
 
             if !exe_path.exists() || exe_path.to_string_lossy().is_empty() {
-                eprintln!("[APP] ❌ AI Server executable not found at: {:?}", exe_path);
-                return Ok(()); // Stop setup but don't panic
+                println!("[APP] ⬇️ AI Server executable missing. Attempting to download llama-server.exe...");
+                let exe_dir = app.path().resolve("binaries", tauri::path::BaseDirectory::Resource).unwrap();
+                let script = "
+                    Invoke-WebRequest -Uri 'https://github.com/ggerganov/llama.cpp/releases/download/b3154/llama-b3154-bin-win-vulkan-x64.zip' -OutFile 'llama.zip';
+                    Expand-Archive -Path 'llama.zip' -DestinationPath 'llama_ext' -Force;
+                    Get-ChildItem -Path 'llama_ext' -Filter 'llama-server.exe' -Recurse | Copy-Item -Destination 'llama-server.exe';
+                    Remove-Item 'llama.zip' -Force;
+                    Remove-Item 'llama_ext' -Recurse -Force;
+                ";
+                let _ = std::process::Command::new("powershell")
+                    .args(&["-Command", script])
+                    .current_dir(&exe_dir)
+                    .status();
+                
+                if !exe_path.exists() {
+                    eprintln!("[APP] ❌ AI Server executable not found at: {:?} even after download attempt.", exe_path);
+                    return Ok(());
+                } else {
+                    println!("[APP] ✅ Successfully downloaded llama-server.exe");
+                }
             }
             if !model_path.exists() || model_path.to_string_lossy().is_empty() {
                 eprintln!("[APP] ❌ Gemma model weights not found at: {:?}", model_path);

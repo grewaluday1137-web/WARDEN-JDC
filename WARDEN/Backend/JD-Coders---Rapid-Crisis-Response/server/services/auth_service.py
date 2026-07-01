@@ -3,6 +3,7 @@ from services.db_service import db
 import uuid
 
 def login_staff(username: str, password: str):
+    if not db: return None
     docs = db.collection("staff").where("username", "==", username).limit(1).stream()
     staff = next((d.to_dict() for d in docs), None)
     if staff and verify_password(password, staff["password"]):
@@ -10,6 +11,7 @@ def login_staff(username: str, password: str):
     return None
 
 def login_guest(username: str, password: str):
+    if not db: return None
     docs = db.collection("guests").where("username", "==", username).limit(1).stream()
     guest = next((d.to_dict() for d in docs), None)
     if guest and verify_password(password, guest["password"]):
@@ -20,6 +22,7 @@ def login_user(username: str, password: str):
     return login_staff(username, password) or login_guest(username, password)
 
 def register_guest(data: dict):
+    if not db: return None
     existing = db.collection("guests").where("username", "==", data["username"]).limit(1).stream()
     if next(existing, None):
         return None
@@ -29,6 +32,7 @@ def register_guest(data: dict):
     return create_token({"id": guest_id, "username": data["username"], "role": "guest"})
 
 def register_staff(data: dict):
+    if not db: return None
     existing = db.collection("staff").where("username", "==", data["username"]).limit(1).stream()
     if next(existing, None):
         return None

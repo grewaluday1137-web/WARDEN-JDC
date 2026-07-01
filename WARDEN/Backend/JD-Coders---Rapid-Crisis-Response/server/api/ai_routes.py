@@ -8,8 +8,7 @@ load_dotenv()
 
 router = APIRouter()
 
-# Configure Gemini
-client = Client(api_key=os.getenv("GEMINI_API_KEY"))
+# Configure Gemini removed from module level
 
 class ChatRequest(BaseModel):
     message: str
@@ -21,6 +20,15 @@ async def chat_with_warden(request: ChatRequest):
     General AI assistant for guests to ask questions about the crisis or safety.
     """
     try:
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            return {
+                "response": "I am currently running in offline mode. Please refer to the designated safe zones on your map or contact Staff directly.",
+                "status": "offline"
+            }
+            
+        client = Client(api_key=api_key)
+        
         # Construct a prompt with context if available
         system_instruction = (
             "You are WARDEN (Wireless Advanced Response & Defense Network) Intelligence. "

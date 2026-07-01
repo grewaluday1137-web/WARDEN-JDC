@@ -114,13 +114,6 @@ def verify_otp(to: str, code: str) -> bool:
     
     # Clean the input code (remove dashes if user entered them)
     code = code.replace("-", "").strip()
-
-    # Universal OTP for testing/development
-    if code == "000000":
-        print(f"[OTP] [SUCCESS] Universal OTP used for {to}")
-        if to in _otp_store:
-            del _otp_store[to]
-        return True
     
     record = _otp_store.get(to)
     if not record:

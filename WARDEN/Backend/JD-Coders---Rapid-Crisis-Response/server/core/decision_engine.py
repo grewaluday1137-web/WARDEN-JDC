@@ -29,14 +29,16 @@ async def handle_alert(alerts: list):
         orig_copy.setdefault("status", "pending")
         
         # Attach Evidence Media (Heuristic mapping)
+        import os
+        api_url = os.getenv("API_URL", "http://localhost:8000")
         media = []
         event_info = (str(orig.get("metadata", {})).lower() + " " + str(orig.get("source", "")).lower())
         if any(kw in event_info for kw in ["fire", "explosion", "smoke"]):
-            media.append("http://localhost:8000/static/Fire.jpeg")
+            media.append(f"{api_url}/static/Fire.jpeg")
         elif any(kw in event_info for kw in ["intrud", "unauthorized", "weapon", "shoot", "gun"]):
-            media.append("http://localhost:8000/static/Intruder%20alert.jpeg")
+            media.append(f"{api_url}/static/Intruder%20alert.jpeg")
         elif any(kw in event_info for kw in ["structur", "earthquake", "collapse", "damage"]):
-            media.append("http://localhost:8000/static/Structural%20Damage.jpeg")
+            media.append(f"{api_url}/static/Structural%20Damage.jpeg")
             
         orig_copy.setdefault("media_attachments", media)
         processed_alerts.append(orig_copy)
